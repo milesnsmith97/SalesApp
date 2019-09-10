@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Chart from './components/Chart';
+import {axios} from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+class App extends Component{
+  constructor(){
+    super();
+    this.state = {
+      isLoaded: false,
+      chartData:[]
+    };
+  }
+
+componentWillMount(){ 
+  this.getChartData();
+}
+
+getChartData(){
+  fetch('https://raw.githubusercontent.com/lauzrussell/POC/master/data')
+  .then(res => res.json()) //results converted to json format
+  .then((json) => { 
+    this.setState({
+        isLoaded: true, //got the data from the api
+        items: json, //set the items state to json
+    })
+  });
+}
+
+render(){
+
+  var { isLoaded, items } = this.state; //access properties within the state
+  if (!isLoaded){ //If not loaded display loading div
+    return <div>Loading...</div>
+  } else{
+    return(
+      <div>
+       <header>
+         <Chart chartData={this.state.items.chartData}/>
       </header>
-    </div>
-  );
+     </div>
+    );
+  }
+}
 }
 
 export default App;
