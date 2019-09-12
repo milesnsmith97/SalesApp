@@ -51,34 +51,21 @@ class Chart extends Component{
                           }
                     }}
                 />
+                <br></br>
+                <hr></hr>
                 <Polar
                     data={this.state.chartData}
 
                     options={{
                         title:{
                             display:this.props.displayTitle,
-                            text:'Transactions',
+                            // text:'Transactions',
                             fontSize:25
                         },
                         legend:{
                             display:this.props.displayLegend,
                             position:this.props.legendPosition
                         },
-                        scales: {
-                            yAxes: [{
-                              stacked: true,
-                              ticks: {
-                                beginAtZero: true
-                              }
-                            }],
-                            xAxes: [{
-                              stacked: true,
-                              ticks: {
-                                beginAtZero: true
-                              }
-                            }]
-              
-                          }
                     }}
                 />
             </div>

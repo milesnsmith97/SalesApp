@@ -43,6 +43,18 @@
   color: #61dafb;
 }
 
+.Chart-Style {
+  padding: 20px;
+  margin: 10px;
+}
+
+.chart hr {
+  width: 100%;
+  border: none;
+  height: 1.5px;
+  background: #dddddd;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -51,3 +63,5 @@
     transform: rotate(360deg);
   }
 }
+
+

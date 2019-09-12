@@ -9,11 +9,6 @@ import Backdrop from './components/Backdrop/Backdrop';
 
 
 class App extends Component{
-
-
-  // state = {
-  //   sideDrawerOpen: false
-  // };
   
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
@@ -38,16 +33,16 @@ componentDidMount(){
   this.getChartData();
 }
 
-
-
 getChartData(){
   fetch('https://raw.githubusercontent.com/lauzrussell/POC/master/data')
   .then(res => res.json()) //results converted to json format
   .then((json) => { 
+    console.log(json)
     this.setState({
         isLoaded: true, //got the data from the api
         items: json, //set the items state to json
     })
+    console.log(this.state.items)
   });
 }
 
