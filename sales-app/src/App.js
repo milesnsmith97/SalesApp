@@ -1,20 +1,44 @@
 import React, {Component} from 'react';
-import './App.css';
 import Chart from './components/Chart';
 import {axios} from 'axios';
 
+import './App.css';
+import Toolbar from './components/Toolbar/Toolbar';
+import SideDrawer from './components/SideDrawer/SideDrawer';
+import Backdrop from './components/Backdrop/Backdrop';
+
+
 class App extends Component{
+
+
+  // state = {
+  //   sideDrawerOpen: false
+  // };
+  
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return {sideDrawerOpen: !prevState.sideDrawerOpen};
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({sideDrawerOpen: false});
+  };
+
   constructor(){
     super();
     this.state = {
       isLoaded: false,
-      chartData:[]
+      chartData:[],
+      sideDrawerOpen: false,
     };
   }
 
 componentDidMount(){ 
   this.getChartData();
 }
+
+
 
 getChartData(){
   fetch('https://raw.githubusercontent.com/lauzrussell/POC/master/data')
@@ -28,13 +52,25 @@ getChartData(){
 }
 
 render(){
-
   var { isLoaded, items } = this.state; //access properties within the state
   if (!isLoaded){ //If not loaded display loading div
     return <div>Loading...</div>
   } else{
+  
+  let backdrop;
+
+  if (this.state.sideDrawerOpen) {
+    backdrop = <Backdrop click={this.backdropClickHandler} />
+  }
     return(
-      <div className="App">
+      <div style={{height: '100%'}}>
+        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+        <SideDrawer  show={this.state.sideDrawerOpen} />
+        {backdrop}
+        <main style={{marginTop: '64px'}}>
+          {/* <p>This is the page content</p> */}
+        </main>
+        
         <div className="App-Header-Page-Title">
           <header className="Page-Header">
             <h1>DASHBOARD</h1>
