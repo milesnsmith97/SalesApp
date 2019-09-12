@@ -73,11 +73,13 @@ render(){
         
         <div className="App-Header-Page-Title">
           <header className="Page-Header">
-            <h1>DASHBOARD</h1>
+            <p>DASHBOARD</p>
           </header>
+          <br></br>
           <div className="Chart-Style">
             <Chart chartData={this.state.items.chartData}/>
           </div>
+          <br></br>
         </div>
      </div>
     );

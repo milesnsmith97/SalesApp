@@ -12,7 +12,8 @@
 .Page-Header {
   background-color: #F8F8F8;
   padding: 5px;
-  font-family: Siseriff LT Std;
+  font-size: 1.5rem;
+  font-weight: 550;
   color: #186836;
   display: flex;
   flex-direction: column;

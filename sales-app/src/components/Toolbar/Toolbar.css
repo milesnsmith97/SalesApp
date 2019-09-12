@@ -3,9 +3,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #F8F8F8;
+    background: rgba(248,248,248,0.97);
     height: 56px;
-
+    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.5);
 }
 
 .toolbar-navigation {
@@ -17,6 +17,10 @@
 
 .toolbar-logo {
     margin-left: 1rem;
+}
+
+.toolbar-logo :hover {
+    color: #186836;
 }
 
 .toolbar-logo a {
@@ -48,4 +52,21 @@
 .toolbar-navigation-items a:hover,
 .toolbar-navigation-items a:active {
     color: #186836;
+}
+
+@media (max-width:760px) {
+    .toolbar-navigation-items {
+        display: none;
+    }
+}
+
+@media (min-width:760px) {
+    .toolbar-toggle-button {
+        display: none;
+    }
+
+    .toolbar-logo {
+        margin-left: 0;
+    }
+
 }
