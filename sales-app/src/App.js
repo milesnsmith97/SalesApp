@@ -34,10 +34,15 @@ render(){
     return <div>Loading...</div>
   } else{
     return(
-      <div>
-       <header>
-         <Chart chartData={this.state.items.chartData}/>
-      </header>
+      <div className="App">
+        <div className="App-Header-Page-Title">
+          <header className="Page-Header">
+            <h1>DASHBOARD</h1>
+          </header>
+          <div className="Chart-Style">
+            <Chart chartData={this.state.items.chartData}/>
+          </div>
+        </div>
      </div>
     );
   }
