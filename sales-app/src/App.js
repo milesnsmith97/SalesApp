@@ -8,21 +8,14 @@ import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
 // import DropDownSelector from './components/DropdownSelector/DropDownSelector';
 
+///////////////// API links:///////////////////////////////
+
 // const API_URL = 'https://raw.githubusercontent.com/lauzrussell/POC/master/data';
+
 const API_URL_TOTAL = 'https://cors-anywhere.herokuapp.com/https://efvmrqvf3e.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_total/';
 const API_URL_COMPLETED = 'https://cors-anywhere.herokuapp.com/efvmrqvf3e.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_completed/';
 const API_URL_PENDING = 'https://cors-anywhere.herokuapp.com/efvmrqvf3e.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_pending/';
 const API_URL_ERROR = 'https://cors-anywhere.herokuapp.com/efvmrqvf3e.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_error/'
-
-///////////////// API links:///////////////////////////////
-
-// Total - https://841yj3ejf3.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_total/
-
-// Errors - https://841yj3ejf3.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_error/
-
-// Pending - https://841yj3ejf3.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_pending/
-
-// Completed - https://841yj3ejf3.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_completed/
 
 ///////////////////////////////////////////////////////////
 
