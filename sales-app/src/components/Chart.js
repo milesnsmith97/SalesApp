@@ -24,7 +24,26 @@ class Chart extends Component{
         return(
             <div className="chart">
                 <Bar
-                    data={this.state.chartData}
+                    data={{
+                      labels: ['All', 'Completed', 'Pending', 'Error'],
+                      datasets:[{
+                        data:[this.state.chartData],
+                        backgroundColor: [
+                          'rgba(93, 155, 234, 0.2)',
+                          'rgba(138, 234, 93, 0.2)',
+                          'rgba(235, 127, 42, 0.2)',
+                          'rbga(235, 42, 42, 0.2)',
+                        ],
+                        borderColor: [
+                          'rgba(93, 155, 234, 1)',
+                          'rgba(138, 234, 93, 1)',
+                          'rgba(235, 127, 42, 1)',
+                          'rbga(235, 42, 42, 1)',
+                        ],
+                        borderWidth: 1
+                      }]
+                    }
+                  }
 
                     options={{
                         title:{
@@ -56,7 +75,7 @@ class Chart extends Component{
                 />
                 <br></br>
                 <hr></hr>
-                <Polar
+                {/* <Polar
                     data={this.state.chartData}
 
                     options={{
@@ -70,7 +89,7 @@ class Chart extends Component{
                             position:this.props.legendPosition
                         },
                     }}
-                />
+                /> */}
             </div>
         )
     }
