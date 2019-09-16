@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Bar, Line, Pie, Polar } from 'react-chartjs-2';
+import {Bar, Polar } from 'react-chartjs-2';
 
 class Chart extends Component{
 
@@ -14,21 +14,24 @@ class Chart extends Component{
         displayTitle:true,
         displayLegend:true,
         legendPosition:'bottom',
-        width: 50
+        // width: 200,
+        // height:100,
+        maintainAspectRatio: false
 
     }
 
     render(){
         return(
             <div className="chart">
-                <Line
+                <Bar
                     data={this.state.chartData}
 
                     options={{
                         title:{
                             display:this.props.displayTitle,
                             text:'Transactions',
-                            fontSize:25
+                            fontSize:25,
+                            defaultProps:this.props.maintainAspectRatio
                         },
                         legend:{
                             display:this.props.displayLegend,
