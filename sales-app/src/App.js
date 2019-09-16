@@ -16,11 +16,13 @@ const API_URL_ERROR = 'https://cors-anywhere.herokuapp.com/https://841yj3ejf3.ex
 
 ///////////////// API links:///////////////////////////////
 
-// Errors - https://5cv2jbtn7j.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_error/
+// Total - https://841yj3ejf3.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_total/
 
-// Pending - https://5cv2jbtn7j.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_pending/
+// Errors - https://841yj3ejf3.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_error/
 
-// Completed - https://5cv2jbtn7j.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_completed/
+// Pending - https://841yj3ejf3.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_pending/
+
+// Completed - https://841yj3ejf3.execute-api.eu-west-2.amazonaws.com/dev/query/sales_online_cpe_process_completed/
 
 ///////////////////////////////////////////////////////////
 
