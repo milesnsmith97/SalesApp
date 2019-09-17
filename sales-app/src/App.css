@@ -12,7 +12,7 @@
 .Page-Header {
   background-color: #F8F8F8;
   padding: 5px;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   font-weight: 550;
   color: #186836;
   display: flex;
@@ -38,6 +38,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
 
 .App-link {
   color: #61dafb;

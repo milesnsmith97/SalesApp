@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import Chart from './components/Chart';
+// import Chart from './components/Chart';
 import axios from 'axios';
 
 import './App.css';
 import Toolbar from './components/Toolbar/Toolbar';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
+import BarChart from './components/BarChart/BarChart';
+import SelectBox from './components/SelectBox/SelectBox';
 // import DropDownSelector from './components/DropdownSelector/DropDownSelector';
 
 ///////////////// API links:///////////////////////////////
@@ -49,6 +51,8 @@ class App extends Component {
           isLoaded: true,
           chartData: Object.assign({}, { firstResponse, secondResponse, thirdResponse, fourthResponse })
         })
+        
+        
       }
       ))
   }
@@ -76,13 +80,16 @@ class App extends Component {
           <div className="App-Header-Page-Title">
             <header className="Page-Header">
               <p>DASHBOARD</p>
+              <SelectBox />
+            <br></br>
             </header>
+          </div>
             <br></br>
             <div className="Chart-Style">
-              <Chart chartData={this.state.chartData} />
+              <BarChart chartData={this.state.chartData} />
             </div>
             <br></br>
-          </div>
+          
         </div>
       );
     }
