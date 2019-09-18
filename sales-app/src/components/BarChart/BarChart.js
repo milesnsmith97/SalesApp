@@ -17,6 +17,7 @@ class BarChart extends Component {
         maintainAspectRatio: false,
         labels: ['Total', 'Completed', 'Pending', 'Error'],
     }
+    
 
     render() {
         return (
@@ -24,27 +25,84 @@ class BarChart extends Component {
             <Bar
               data={{
                 labels: this.props.labels,
-                datasets: [{
-                  data: [
-                    this.state.chartData.firstResponse.data.summary_count, 
-                    this.state.chartData.secondResponse.data.summary_count,
-                    this.state.chartData.thirdResponse.data.summary_count, 
-                    this.state.chartData.fourthResponse.data.summary_count
-                  ],
-                  backgroundColor: [
-                    'rgba(93, 155, 234, 0.2)',
-                    'rgba(138, 234, 93, 0.2)',
-                    'rgba(235, 127, 42, 0.2)',
-                    'rgba(235, 127, 42, 0.2)',
-                  ],
-                  borderColor: [
-                    'rgba(93, 155, 234, 1)',
-                    'rgba(138, 234, 93, 1)',
-                    'rgba(235, 127, 42, 1)',
-                    'rgba(235, 127, 42, 1)',
-                  ],
-                  borderWidth: 1,
-                }]
+                datasets: [
+                    { ///// ONLINE /////
+                      label: 'Online',
+                      data: [
+                        this.state.chartData.firstResponse.data.total,
+                        this.state.chartData.firstResponse.data.completed,
+                        this.state.chartData.firstResponse.data.pending,
+                        this.state.chartData.firstResponse.data.error,
+                      ]
+                      ,
+                      backgroundColor: 
+                        'rgba(45, 145, 245, 0.5)',
+                      borderColor: 
+                        'rgba(45, 145, 245, 1)',
+                      borderWidth: 1,
+                    },
+                    { ///// WHOLESALE /////
+                      label: 'Wholesale',
+                      data: [
+                        this.state.chartData.secondResponse.data.total,
+                        this.state.chartData.secondResponse.data.completed,
+                        this.state.chartData.secondResponse.data.pending,
+                        this.state.chartData.secondResponse.data.error,
+                      ],
+                      backgroundColor: 
+                        'rgba(235, 42, 194, 0.5)',
+                      borderColor: 
+                        'rgba(235, 42, 194, 1)',
+                      borderWidth: 1,
+                    },
+                    { ///// FOLD DEALS /////
+                      label: 'Fol Deals',
+                      data: [
+                        this.state.chartData.thirdResponse.data.total,
+                        this.state.chartData.thirdResponse.data.completed,
+                        this.state.chartData.thirdResponse.data.pending,
+                        this.state.chartData.thirdResponse.data.error,
+                      ],
+                      backgroundColor: 
+                        'rgba(255, 195, 0, 0.5)',
+                      borderColor: 
+                        'rgba(255, 195, 0, 0.5)',
+                      borderWidth: 1,
+                    }
+                  ]
+
+              //     data: [
+              //       // this.state.chartData.firstResponse.data.summary_count, 
+              //       // this.state.chartData.secondResponse.data.summary_count,
+              //       // this.state.chartData.thirdResponse.data.summary_count, 
+              //       // this.state.chartData.fourthResponse.data.summary_count
+              //       this.state.chartData.firstResponse.data.total,
+              //       this.state.chartData.firstResponse.data.completed,
+              //       this.state.chartData.firstResponse.data.pending,
+              //       this.state.chartData.firstResponse.data.error,
+                    
+                    
+              //     ],
+              //     data: [
+              //       this.state.chartData.secondResponse.dataTwo.total,
+              //       this.state.chartData.secondResponse.dataTwo.completed,
+              //       this.state.chartData.secondResponse.dataTwo.pending,
+              //       this.state.chartData.secondResponse.dataTwo.error,
+              //     ],
+              //     backgroundColor: [
+              //       'rgba(93, 155, 234, 0.2)',
+              //       'rgba(138, 234, 93, 0.2)',
+              //       'rgba(235, 127, 42, 0.2)',
+              //       'rgba(235, 127, 42, 0.2)',
+              //     ],
+              //     borderColor: [
+              //       'rgba(93, 155, 234, 1)',
+              //       'rgba(138, 234, 93, 1)',
+              //       'rgba(235, 127, 42, 1)',
+              //       'rgba(235, 127, 42, 1)',
+              //     ],
+              //     borderWidth: 1,
+                // }]
               }}
     
               options={{
