@@ -14,7 +14,7 @@ import LineChart from './components/LineChart/LineChart';
 
 ///////////////// API links:///////////////////////////////
 
-const API_EVERYTHING = 'https://cors-anywhere.herokuapp.com/https://qmyxgbg5bl.execute-api.eu-west-2.amazonaws.com/dev/getlatest'
+// const API_EVERYTHING = 'https://cors-anywhere.herokuapp.com/https://qmyxgbg5bl.execute-api.eu-west-2.amazonaws.com/dev/getlatest'
 
 const API_ONLINE = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_online_cpe_process'
 
@@ -24,12 +24,29 @@ const API_FOLDEALS = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.exe
 
 ///////////////////////////////////////////////////////////
 
+// const lineChartOne = props => {
+//     let chartOneClasses = 'chart-one';
+//     if (props.show) {
+//         chartOneClasses = 'chart-one-open';
+//     }
+//     return (
+//       <div className={chartOneClasses}>
+//         <LineChart />
+//       </div>
+//     )}
+
 class App extends Component {
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
+
+  // chartSelectClickHandler = () => {
+  //   this.setState((prevState) => {
+  //     return { lineChartOneOpen: !prevState.lineChartOneOpen };
+  //   })
+  // }
 
   backdropClickHandler = () => {
     this.setState({ sideDrawerOpen: false });
@@ -85,19 +102,25 @@ class App extends Component {
             <header className="Page-Header">
               <p>DASHBOARD</p>
               {/* <SelectBox /> */}
-              <div className="dropdown">
-              <ChartSelect />
-              </div>
-            <br></br>
             </header>
           </div>
             <br></br>
             <div className="Chart-Style">
               <BarChart chartData={this.state.chartData} />
+            
+              
             </div>
-            <div>
+            <div className="Chart-Style">
+            <div className="Button-Container">
+                <div className="dropdown">
+                  <p><ChartSelect /></p>
+                </div>
+              </div>
+
               <LineChart chartData={this.state.chartData} />
             </div>
+
+            
             <br></br>
           
         </div>
