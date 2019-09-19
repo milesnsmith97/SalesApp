@@ -6,6 +6,7 @@
     background: rgba(248,248,248,0.97);
     height: 56px;
     box-shadow: 1px 0 1px rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }
 
 .toolbar-navigation {
