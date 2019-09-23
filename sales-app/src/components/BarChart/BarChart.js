@@ -100,31 +100,31 @@ class BarChart extends Component {
 
 
 
-                  onClick:function(event) {
+//                   onClick:function(event) {
 
 
-console.log(event)
+// console.log(event)
 
-                   var data_data = this.BarChart.data.datasets.data.getElementAtEvent(event);
-                   var data_type = this.BarChart.data.datasets.label.getElementAtEvent(event);
+//                    var data_data = this.BarChart.data.datasets.data.getElementAtEvent(event);
+//                    var data_type = this.BarChart.data.datasets.label.getElementAtEvent(event);
 
-                   if(data_type) {
+//                    if(data_type) {
 
-                     var label = this.BarChart.data.datasets.label[data_type._index];
+//                      var label = this.BarChart.data.datasets.label[data_type._index];
                     
 
-                   }
+//                    }
 
-                   if(data_data) {
+//                    if(data_data) {
 
-                    var value = this.BarChart.data.datasets.data[data_data._datasetIndex].data[data_data._index];
+//                     var value = this.BarChart.data.datasets.data[data_data._datasetIndex].data[data_data._index];
 
 
-                   }
+//                    }
                    
                   
-                  console.log(value)
-                  console.log(label)
+//                   console.log(value)
+//                   console.log(label)
 
                   
 
@@ -132,7 +132,7 @@ console.log(event)
                  
 
 
-                },
+                // },
                 scales: {
                   yAxes: [{
                     stacked: true,
