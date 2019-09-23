@@ -1,9 +1,6 @@
         import React, {Component} from 'react';
         import { Line } from 'react-chartjs-2';
-
-
-
-        
+        import Moment from 'react-moment';
 
         class LineChart extends Component {
 
@@ -35,11 +32,12 @@
             <div>
                 <Line
                     data={{
-                        labels: this.props.labels,
                         datasets: [
                             {
                                 label:'Total',
-                                data: [this.state.chartData.firstResponse.data.total,],
+                                data: 
+                                // [this.state.chartData.firstResponse.data.total,
+                                   [ this.state.chartData.fourthResponse.data.created_dt],
                                 backgroundColor:
                                 'rgba(45, 145, 245, 0)',
                                 borderColor: 
@@ -72,7 +70,9 @@
                                 borderColor: 
                                 'rgba(199, 0, 57, 1)',
                                 borderWidth: 2,
-                            }]
+                          
+                            }
+                        ]
                         }}
 
                     options={{
@@ -94,7 +94,11 @@
                                 stacked: false,
                                 ticks: {
                                     beginAtZero: true
-                                }
+                                },
+                                // type:'time',
+                                // time: {
+                                //     unit: 'month'
+                                // }
                             }],
                             yAxes: [{
                                 stacked:false,
@@ -108,6 +112,6 @@
             </div>
         )
         }
-        }
+        };
 
-        export default LineChart;
+export default LineChart;
