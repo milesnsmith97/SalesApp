@@ -3,6 +3,9 @@ import { Bar } from 'react-chartjs-2';
 
 class BarChart extends Component {
 
+
+
+
     constructor(props) {
         super(props);
         this.state = {
@@ -21,7 +24,7 @@ class BarChart extends Component {
 
     render() {
         return (
-          <div className="chart">
+          <div className="chart" id="chart">
             <Bar
               data={{
                 labels: this.props.labels,
@@ -87,6 +90,48 @@ class BarChart extends Component {
                   labels: {
                     fontColor:'rgb(95, 95, 95)'
                   }
+
+                  
+
+
+
+
+                },
+
+
+
+                  onClick:function(event) {
+
+
+console.log(event)
+
+                   var data_data = this.BarChart.data.datasets.data.getElementAtEvent(event);
+                   var data_type = this.BarChart.data.datasets.label.getElementAtEvent(event);
+
+                   if(data_type) {
+
+                     var label = this.BarChart.data.datasets.label[data_type._index];
+                    
+
+                   }
+
+                   if(data_data) {
+
+                    var value = this.BarChart.data.datasets.data[data_data._datasetIndex].data[data_data._index];
+
+
+                   }
+                   
+                  
+                  console.log(value)
+                  console.log(label)
+
+                  
+
+
+                 
+
+
                 },
                 scales: {
                   yAxes: [{
