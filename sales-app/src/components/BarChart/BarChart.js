@@ -7,11 +7,17 @@ class BarChart extends Component {
 
 
     constructor(props) {
+        
         super(props);
+  
+
         this.state = {
-            chartData: props.chartData
+            chartData: props.chartData,
         }
+        this.handleClick = this.handleClick.bind.this
     }
+
+
 
     static defaultProps = {
         displayTitle: true,
@@ -97,16 +103,17 @@ class BarChart extends Component {
 
 
                 },
+                
 
 
 
+                
                   onClick:function(event) {
+                   
+                      console.log(this.event)
 
-
-console.log(event)
-
-                   var data_data = this.BarChart.data.datasets.data.getElementAtEvent(event);
-                   var data_type = this.BarChart.data.datasets.label.getElementAtEvent(event);
+                   var data_data = this.data.getElementAtEvent(event);
+                   var data_type = this.label.getElementAtEvent(event);
 
                    if(data_type) {
 
@@ -120,11 +127,15 @@ console.log(event)
                     var value = this.BarChart.data.datasets.data[data_data._datasetIndex].data[data_data._index];
 
 
-                   }
+                   
                    
                   
                   console.log(value)
                   console.log(label)
+
+
+                    }
+
 
                   
 

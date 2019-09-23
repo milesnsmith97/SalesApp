@@ -78,6 +78,11 @@ class App extends Component {
       ))
   }
 
+  
+
+
+
+
   render() {
     var { isLoaded } = this.state; //access properties within the state
     if (!isLoaded) { //If not loaded display loading div
@@ -119,13 +124,15 @@ class App extends Component {
 
               <LineChart chartData={this.state.chartData} />
             </div>
-
+           
             
             <br></br>
           
         </div>
       );
+      
     }
+    
   }
 }
 
