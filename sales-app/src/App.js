@@ -75,19 +75,6 @@ class App extends Component {
     this.getChartData();
   }
 
-  // async getChartData() {
-  //   axios.get(API_ONLINE)
-  //   .then(res => {
-  //     this.setState({
-  //       isLoaded: true,
-  //       chartData: res
-       
-  //     })
-  //     console.log({res})
-  //       }
-  //       )
-  // }
-
   async getChartData(){
     axios.all([axios.get(API_EVERYTHING)])
       .then(await axios.spread((response) => {
