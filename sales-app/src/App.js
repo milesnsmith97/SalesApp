@@ -14,7 +14,7 @@ import LineChart from './components/LineChart/LineChart';
 
 ///////////////// API links:///////////////////////////////
 
-// const API_EVERYTHING = 'https://cors-anywhere.herokuapp.com/https://qmyxgbg5bl.execute-api.eu-west-2.amazonaws.com/dev/getlatest'
+const API_EVERYTHING = 'https://cors-anywhere.herokuapp.com/https://qmyxgbg5bl.execute-api.eu-west-2.amazonaws.com/dev/getlatest'
 
 const API_ONLINE = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_online_cpe_process'
 
@@ -24,16 +24,6 @@ const API_FOLDEALS = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.exe
 
 ///////////////////////////////////////////////////////////
 
-// const lineChartOne = props => {
-//     let chartOneClasses = 'chart-one';
-//     if (props.show) {
-//         chartOneClasses = 'chart-one-open';
-//     }
-//     return (
-//       <div className={chartOneClasses}>
-//         <LineChart />
-//       </div>
-//     )}
 
 class App extends Component {
   drawerToggleClickHandler = () => {
@@ -66,14 +56,15 @@ class App extends Component {
   async componentDidMount() {
     axios.all([axios.get(API_ONLINE),
     axios.get(API_WHOLESALE),
-    axios.get(API_FOLDEALS)])
-      .then(await axios.spread((firstResponse, secondResponse, thirdResponse) => {
+    axios.get(API_FOLDEALS),
+    axios.get(API_EVERYTHING)])
+      .then(await axios.spread((firstResponse, secondResponse, thirdResponse, fourthResponse) => {
         this.setState({
           isLoaded: true,
-          chartData: Object.assign({}, { firstResponse, secondResponse, thirdResponse })
+          chartData: Object.assign({}, { firstResponse, secondResponse, thirdResponse, fourthResponse })
          
         })
-        console.log({firstResponse, secondResponse, thirdResponse})
+        console.log({firstResponse, secondResponse, thirdResponse, fourthResponse})
       }
       ))
   }
@@ -116,13 +107,14 @@ class App extends Component {
               
             </div>
             <div className="Chart-Style">
-            <div className="Button-Container">
-                <div className="dropdown">
-                  <p><ChartSelect /></p>
-                </div>
+              <div className="Button-Container">
+                  <div className="dropdown">
+                    <ChartSelect />
+                  </div>
+                  <LineChart chartData={this.state.chartData} />
               </div>
 
-              <LineChart chartData={this.state.chartData} />
+              
             </div>
            
             

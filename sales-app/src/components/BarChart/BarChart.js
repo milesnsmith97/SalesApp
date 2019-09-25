@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
+import HandleDrillDown from '../HandleDrillDown/HandleDrillDown'
 
 class BarChart extends Component {
 
@@ -13,9 +14,16 @@ class BarChart extends Component {
 
         this.state = {
             chartData: props.chartData,
+            BarChart:props.BarChart
+            
         }
-        this.handleClick = this.handleClick.bind.this
+        
+
     }
+
+    
+
+
 
 
 
@@ -24,6 +32,7 @@ class BarChart extends Component {
         displayLegend: true,
         legendPosition: 'bottom',
         maintainAspectRatio: false,
+        handleClick:false,
         labels: ['Total', 'Completed', 'Pending', 'Error'],
     }
     
@@ -78,8 +87,13 @@ class BarChart extends Component {
                       borderColor: 
                         'rgba(255, 195, 0, 0.5)',
                       borderWidth: 1,
-                    }
-                  ]
+                    },
+                    
+                  ],
+                
+
+
+        
 
               }}
     
@@ -87,7 +101,6 @@ class BarChart extends Component {
                 title: {
                   display: this.props.displayTitle,
                   text: 'Transactions',
-                  fontSize: 25,
                   defaultProps: this.props.maintainAspectRatio
                 },
                 legend: {
@@ -95,55 +108,58 @@ class BarChart extends Component {
                   position: this.props.legendPosition,
                   labels: {
                     fontColor:'rgb(95, 95, 95)'
-                  }
+                  },
+                  
+
+                  },
+
+                  events: HandleDrillDown,
+                
 
                   
 
+                  // events: ['click'], onClick: function(event) {
 
-
-
-                },
-                
-
-
-
-                
-                  onClick:function(event) {
-                   
-                      console.log(this.event)
-
-                   var data_data = this.data.getElementAtEvent(event);
-                   var data_type = this.label.getElementAtEvent(event);
-
-                   if(data_type) {
-
-                     var label = this.BarChart.data.datasets.label[data_type._index];
+                  //   var data_type = this.state.chartData.data.label.getElementAtEvent(event)
+                  //    var data_data = this.state.chartData.data.datasets.data.getElementAtEvent(event)
+                  //                     if(data_type = undefined) {
                     
+                  //                        var label = this.state.BarChart.data.datasets.label[data_type._index];
+                  //                        console.log("failed");
+                    
+                                       
+                    
+                  //                      if(data_data) {
+                    
+                  //                       var value = this.state.BarChart.data.datasets.data[data_data._datasetIndex].data[data_data._index];
+                    
+                    
+                                       
+                                       
+                                      
+                  //                     console.log(value)
+                  //                     console.log(label)
 
-                   }
 
-                   if(data_data) {
+         
+                  //                      }
+                  //                     }
+                  //                   },
+                                     
+                          
 
-                    var value = this.BarChart.data.datasets.data[data_data._datasetIndex].data[data_data._index];
+                                    
+
+                
+              
+                
 
 
-                   
-                   
+
+
+
                   
-                  console.log(value)
-                  console.log(label)
 
-
-                    }
-
-
-                  
-
-
-                 
-
-
-                },
                 scales: {
                   yAxes: [{
                     stacked: true,
@@ -158,8 +174,14 @@ class BarChart extends Component {
                     }
                   }]
     
-                }
+                },
+
+
+    
+
+                
               }}
+              
             />
             <br></br>
             <hr></hr>
@@ -167,5 +189,7 @@ class BarChart extends Component {
         )
       }
     }
+  
+  
     
     export default BarChart;
