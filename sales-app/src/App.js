@@ -48,30 +48,52 @@ class App extends Component {
       isLoaded: false,
       chartData: [],
       sideDrawerOpen: false,
-    };
+      chartOptions:{
+        title: {
+          display: this.props.displayTitle,
+          text: this.props.titleText,
+          fontSize: this.props.titleFontSize,
+          defaultProps: this.props.maintainAspectRatio,
+          isResponsive: this.props.isResponsive
+        },
+        legend: {
+          display: this.props.displayLegend,
+          position: this.props.legendPosition,
+          labels: {
+            fontColor:this.props.titleFontColor,
+          }
+        }
+        }
+        };
   }
+
+  
 
                       /// Calls API's and maps for stacked bar chart ///
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.getChartData();
+  }
+
+  async getChartData() {
     axios.all([axios.get(API_ONLINE),
-    axios.get(API_WHOLESALE),
-    axios.get(API_FOLDEALS),
-    axios.get(API_EVERYTHING)])
-      .then(await axios.spread((firstResponse, secondResponse, thirdResponse, fourthResponse) => {
-        this.setState({
-          isLoaded: true,
-          chartData: Object.assign({}, { firstResponse, secondResponse, thirdResponse, fourthResponse })
-         
-        })
-        console.log({firstResponse, secondResponse, thirdResponse, fourthResponse})
-      }
-      ))
+      axios.get(API_WHOLESALE),
+      axios.get(API_FOLDEALS),
+      axios.get(API_EVERYTHING)])
+        .then(await axios.spread((firstResponse, secondResponse, thirdResponse, fourthResponse) => {
+          this.setState({
+            isLoaded: true,
+            chartData: Object.assign({}, { firstResponse, secondResponse, thirdResponse, fourthResponse })
+           
+          })
+          console.log({firstResponse, secondResponse, thirdResponse, fourthResponse})
+        }
+        ))
   }
 
   render() {
     var { isLoaded } = this.state; //access properties within the state
-    if (!isLoaded) { //If not loaded display loading div
+    if (!isLoaded) {              //If not loaded display loading div
       return <div>Loading...</div>
     } else {
 

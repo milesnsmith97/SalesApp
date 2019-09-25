@@ -12,19 +12,41 @@
         }
 
         static defaultProps = {
-        displayTitle: true,
-        displayLegend: true,
-        legendPosition: 'bottom',
-        maintainAspectRatio: false,
-        labels: [
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
-            'Sunday',
-            ]
+            displayTitle: true,
+            titleText: ['Wholesale Filter View',],
+            titleFontSize: 25,
+            titleFontColor: 'rgb(95, 95, 95)',
+            displayLegend: true,
+            legendPosition: 'bottom',
+            maintainAspectRatio: false,
+            isResponsive: true,
+            labels: [
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+                'Sunday',
+                ],
+            displayScaleLabel: true,
+            scaleLabelText: 'Process Status / Count',
+            colors: [
+                    'rgba(45, 145, 245, 1)',    // Blue 
+                    'rgba(80, 243, 43, 1)',     // Green
+                    'rgba(243, 168, 43, 1)',    // Yellow
+                    'rgba(199, 0, 57, 1)',      // Red
+                    ],
+            colorFill:
+                    'rgba(45, 145, 245, 0)',
+            LegendTitles: [
+                        'Total', 
+                        'Completed', 
+                        'Pending',
+                        'Error',
+                        ],
+            stackedBars: true,
+            AxisAtZero: true,
         }
 
         render() {
@@ -34,41 +56,33 @@
                     data={{
                         datasets: [
                             {
-                                label:'Total',
+                                label:this.props.LegendTitles[0],
                                 data: 
-                                // [this.state.chartData.firstResponse.data.total,
-                                   [ this.state.chartData.fourthResponse.data.created_dt],
-                                backgroundColor:
-                                'rgba(45, 145, 245, 0)',
-                                borderColor: 
-                                'rgba(45, 145, 245, 1)',
+                                [this.state.chartData.firstResponse.data.total],
+                                //    [ this.state.chartData.fourthResponse.data.created_dt],
+                                backgroundColor: this.props.colorFill,
+                                borderColor: this.props.colors [0],
                                 borderWidth: 2,
                             },
                             {
-                                label:'Completed',
+                                label:this.props.LegendTitles[1],
                                 data: [this.state.chartData.firstResponse.data.completed,],
-                                backgroundColor:
-                                'rgba(80, 243, 43, 0)',
-                                borderColor: 
-                                'rgba(80, 243, 43, 1)',
+                                backgroundColor: this.props.colorFill,
+                                borderColor: this.props.colors [1],
                                 borderWidth: 2,
                             },
                             {
-                                label:'Pending',
+                                label:this.props.LegendTitles[2],
                                 data: [this.state.chartData.firstResponse.data.pending,],
-                                backgroundColor:
-                                'rgba(243, 168, 43, 0)',
-                                borderColor: 
-                                'rgba(243, 168, 43, 1)',
+                                backgroundColor: this.props.colorFill,
+                                borderColor: this.props.colors [2],
                                 borderWidth: 2,
                             },
                             {
-                                label:'Error',
+                                label:this.props.LegendTitles[3],
                                 data: [this.state.chartData.firstResponse.data.error,],
-                                backgroundColor:
-                                'rgba(199, 0, 57, 0)',
-                                borderColor: 
-                                'rgba(199, 0, 57, 1)',
+                                backgroundColor: this.props.colorFill,
+                                borderColor: this.props.colors [3],
                                 borderWidth: 2,
                           
                             }
@@ -78,22 +92,23 @@
                     options={{
                         title: {
                             display: this.props.displayTitle,
-                            text: 'Wholesale Filter View',
-                            fontSize: 20,
+                            text: this.props.titleText,
+                            fontSize: this.props.titleFontSize,
+                            responsive: true,
                             defaultProps: this.props.maintainAspectRatio
                         },
                         legend: {
                             display: this.props.displayLegend,
                             position: this.props.legendPosition,
                             labels: {
-                                fontColor: 'rgb(95, 95, 95)'
+                                fontColor: this.props.titleFontColor
                             }
                         },
                         scales: {
                             xAxes: [{
-                                stacked: false,
+                                stacked: this.props.stackedBars,
                                 ticks: {
-                                    beginAtZero: true
+                                    beginAtZero: this.props.AxisAtZero
                                 },
                                 // type:'time',
                                 // time: {
@@ -101,9 +116,13 @@
                                 // }
                             }],
                             yAxes: [{
-                                stacked:false,
+                                stacked: this.props.stackedBars,
                                 ticks: {
-                                    beginAtZero: true
+                                    beginAtZero: this.props.AxisAtZero
+                                },
+                                scaleLabel: {
+                                    display: this.props.displayScaleLabel,
+                                    labelString: this.props.scaleLabelText
                                 }
                             }]
                         }
