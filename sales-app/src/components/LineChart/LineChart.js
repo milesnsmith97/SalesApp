@@ -57,30 +57,29 @@
                         datasets: [
                             {
                                 label:this.props.LegendTitles[0],
-                                data: 
-                                [this.state.chartData.firstResponse.data.total],
-                                //    [ this.state.chartData.fourthResponse.data.created_dt],
+                                data: this.state.chartData.response.data.sales_online_cpe_process.total,
+                                //    [ this.state.chartData.response.data.created_dt],
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [0],
                                 borderWidth: 2,
                             },
                             {
                                 label:this.props.LegendTitles[1],
-                                data: [this.state.chartData.firstResponse.data.completed,],
+                                data: this.state.chartData.response.data.sales_online_cpe_process.completed,
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [1],
                                 borderWidth: 2,
                             },
                             {
                                 label:this.props.LegendTitles[2],
-                                data: [this.state.chartData.firstResponse.data.pending,],
+                                data: this.state.chartData.response.data.sales_online_cpe_process.total,
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [2],
                                 borderWidth: 2,
                             },
                             {
                                 label:this.props.LegendTitles[3],
-                                data: [this.state.chartData.firstResponse.data.error,],
+                                data: this.state.chartData.response.data.sales_online_cpe_process.error,
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [3],
                                 borderWidth: 2,

@@ -75,20 +75,28 @@ class App extends Component {
     this.getChartData();
   }
 
-  async getChartData() {
-    axios.all([axios.get(API_ONLINE),
-      axios.get(API_WHOLESALE),
-      axios.get(API_FOLDEALS),
-      axios.get(API_EVERYTHING)])
-        .then(await axios.spread((firstResponse, secondResponse, thirdResponse, fourthResponse) => {
-          this.setState({
-            isLoaded: true,
-            chartData: Object.assign({}, { firstResponse, secondResponse, thirdResponse, fourthResponse })
-           
-          })
-          console.log({firstResponse, secondResponse, thirdResponse, fourthResponse})
-        }
-        ))
+  // async getChartData() {
+  //   axios.get(API_ONLINE)
+  //   .then(res => {
+  //     this.setState({
+  //       isLoaded: true,
+  //       chartData: res
+       
+  //     })
+  //     console.log({res})
+  //       }
+  //       )
+  // }
+
+  async getChartData(){
+    axios.all([axios.get(API_EVERYTHING)])
+      .then(await axios.spread((response) => {
+        this.setState({
+          isLoaded: true,
+          chartData: Object.assign({}, { response })
+        })
+        console.log(response)
+      }))
   }
 
   render() {

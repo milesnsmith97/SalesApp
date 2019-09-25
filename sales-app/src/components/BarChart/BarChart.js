@@ -54,10 +54,10 @@ class BarChart extends Component {
                     { ///// ONLINE /////
                       label: this.props.LegendTitles[0],
                       data: [
-                        this.state.chartData.firstResponse.data.pending,
-                        this.state.chartData.firstResponse.data.error,
-                        this.state.chartData.firstResponse.data.completed,
-                        this.state.chartData.firstResponse.data.total,
+                        this.state.chartData.response.data.sales_online_cpe_process.pending,
+                        this.state.chartData.response.data.sales_online_cpe_process.error,
+                        this.state.chartData.response.data.sales_online_cpe_process.completed,
+                        this.state.chartData.response.data.sales_online_cpe_process.total,
                       ],
                       backgroundColor: this.props.colors[0],
                       borderColor: this.props.colors[0],
@@ -67,10 +67,10 @@ class BarChart extends Component {
                     { ///// WHOLESALE /////
                       label: this.props.LegendTitles[1],
                       data: [
-                        this.state.chartData.secondResponse.data.pending,
-                        this.state.chartData.secondResponse.data.error,
-                        this.state.chartData.secondResponse.data.completed,
-                        this.state.chartData.secondResponse.data.total,
+                        this.state.chartData.response.data.sales_wholesale_cpe_process.pending,
+                        this.state.chartData.response.data.sales_wholesale_cpe_process.error,
+                        this.state.chartData.response.data.sales_wholesale_cpe_process.completed,
+                        this.state.chartData.response.data.sales_wholesale_cpe_process.total,
                       ],
                       backgroundColor: 
                         this.props.colors[1],
@@ -82,10 +82,10 @@ class BarChart extends Component {
                     { ///// FOLD DEALS /////
                       label: this.props.LegendTitles[2],
                       data: [
-                        this.state.chartData.thirdResponse.data.pending,
-                        this.state.chartData.thirdResponse.data.error,
-                        this.state.chartData.thirdResponse.data.completed,
-                        this.state.chartData.thirdResponse.data.total,
+                        this.state.chartData.response.data.sales_foldeals_cpe_process.pending,
+                        this.state.chartData.response.data.sales_foldeals_cpe_process.error,
+                        this.state.chartData.response.data.sales_foldeals_cpe_process.completed,
+                        this.state.chartData.response.data.sales_foldeals_cpe_process.total,
                       ],
                       backgroundColor: 
                         this.props.colors[2],
