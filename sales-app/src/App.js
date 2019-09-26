@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './App.css';
-import Toolbar from './components/Toolbar/Toolbar';
+import ButtonAppBar from './components/Toolbar/Toolbar';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
 import ChartSelect from './components/ChartSelect/ChartSelect';
