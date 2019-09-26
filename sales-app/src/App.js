@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './App.css';
-// import OnClick from './components/OnClickFunction/OnClick'
 import Toolbar from './components/Toolbar/Toolbar';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
 import ChartSelect from './components/ChartSelect/ChartSelect';
 import BarChart from './components/BarChart/BarChart';
 import LineChart from './components/LineChart/LineChart';
-import DrillDownDisplayOff from './components/DrillDownDisplay/DrillDownDisplayOff';
-import DrillDownDisplayOn from './components/DrillDownDisplay/DrillDownDisplayOn';
+import LightboxExample from './components/DrillDownDisplay/LightBoxExample'
+
 // import PolarChart from './components/PolarChart/PolarChart';
 // import Chart from './components/Chart';
 
@@ -42,15 +41,6 @@ class App extends Component {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
-  drillDownToggleClickHandler = () => {
-    this.setState((prevState)  => {
-      return { drillDownOpen: !prevState.drillDownOpen };
-
-      });
-    };
-
-  
-
   // chartSelectClickHandler = () => {
   //   this.setState((prevState) => {
   //     return { lineChartOneOpen: !prevState.lineChartOneOpen };
@@ -58,11 +48,12 @@ class App extends Component {
   // }
 
   backdropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false });
+    this.setState({ sideDrawerOpen: false , drillDownOpen:false});
   };
 
   constructor(props) {
     super(props);
+  
     this.state = {
       isLoaded: false,
       chartData: [],
@@ -100,13 +91,13 @@ class App extends Component {
     axios.all([axios.get(API_FOLDDEALS_ERROR),
     axios.get(API_ONLINE_ERROR),
     axios.get(API_WHOLESALE_ERROR)])
-      .then(await axios.spread((reponseone, responsetwo, responsethree ) => {
+      .then(await axios.spread((responseone, responsetwo, responsethree ) => {
         this.setState({
           isLoaded: true,
-          drillDownData: Object.assign({}, { reponseone, responsetwo, responsethree })
+          drillDownData: Object.assign({}, { responseone, responsetwo , responsethree,  })
          
         })
-        console.log({reponseone, responsetwo, responsethree})
+        console.log({responseone, responsetwo, responsethree})
       }
       ))
   }
@@ -156,9 +147,15 @@ class App extends Component {
           </div>
             <br></br>
             <div className="Chart-Style">
-            <DrillDownDisplayOn  />
-            <DrillDownDisplayOff/>
-              <BarChart chartData={this.state.chartData} />
+          
+          
+
+
+          <div>
+          <LightboxExample/>
+           </div>
+          
+            <BarChart chartData={this.state.chartData} />
               {/* <OnClick OnClick={this.state.OnClick}                  /> */}
 
               
@@ -169,7 +166,7 @@ class App extends Component {
                     <ChartSelect />
                   </div>
 
-
+                  
                   <LineChart chartData={this.state.chartData} />
               </div>
 
@@ -179,8 +176,7 @@ class App extends Component {
            
             
             <br></br>
-            <DrillDownDisplayOff/>
-            <DrillDownDisplayOn/>
+            
           
         </div>
       );

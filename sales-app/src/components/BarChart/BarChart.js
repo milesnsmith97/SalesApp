@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
-import HandleDrillDown from '../HandleDrillDown/HandleDrillDown'
+
+
 
 class BarChart extends Component {
 
 
+  
 
     constructor(props) {
         
         super(props);
-  
-
         this.state = {
             chartData: props.chartData,
             BarChart:props.BarChart
@@ -21,10 +21,7 @@ class BarChart extends Component {
     }
 
     
-
-
-
-
+  
 
     static defaultProps = {
         displayTitle: true,
@@ -56,6 +53,7 @@ class BarChart extends Component {
     }
     
 
+    
     render() {
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
@@ -147,6 +145,7 @@ class BarChart extends Component {
                   }]
     
                 },
+                
 
 
     
