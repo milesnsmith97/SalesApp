@@ -6,7 +6,6 @@ class BarChart extends Component {
 
 
 
-
     constructor(props) {
         
         super(props);
@@ -29,63 +28,83 @@ class BarChart extends Component {
 
     static defaultProps = {
         displayTitle: true,
+        titleText: 'Transactions',
+        titleFontSize: 25,
         displayLegend: true,
         legendPosition: 'bottom',
         maintainAspectRatio: false,
-        handleClick:false,
-        labels: ['Total', 'Completed', 'Pending', 'Error'],
+        labels: [
+                'Pending', 
+                'Error', 
+                'Completed', 
+                'Total'
+              ],
+        isResponsive: true,
+        colors: [
+                'rgba(45, 145, 245, 0.5)',  // Blue
+                'rgba(235, 42, 194, 0.5)',  // Wholesale
+                'rgba(255, 195, 0, 0.5)'    // FOL Deals
+              ],
+        LegendTitles: [
+                      'Online', 
+                      'Wholesale', 
+                      'FOL Deals'
+                    ],
+        titleFontColor: 'rgb(95, 95, 95)',
+        stackedBars: true,
+        AxisAtZero: true,
     }
     
 
     render() {
+      // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
+
           <div className="chart" id="chart">
             <Bar
               data={{
                 labels: this.props.labels,
                 datasets: [
                     { ///// ONLINE /////
-                      label: 'Online',
+                      label: this.props.LegendTitles[0],
                       data: [
-                        this.state.chartData.firstResponse.data.total,
-                        this.state.chartData.firstResponse.data.completed,
-                        this.state.chartData.firstResponse.data.pending,
-                        this.state.chartData.firstResponse.data.error,
+                        this.state.chartData.response.data.sales_online_cpe_process.pending,
+                        this.state.chartData.response.data.sales_online_cpe_process.error,
+                        this.state.chartData.response.data.sales_online_cpe_process.completed,
+                        this.state.chartData.response.data.sales_online_cpe_process.total,
                       ],
-                      backgroundColor: 
-                        'rgba(45, 145, 245, 0.5)',
-                      borderColor: 
-                        'rgba(45, 145, 245, 1)',
+                      backgroundColor: this.props.colors[0],
+                      borderColor: this.props.colors[0],
                       borderWidth: 1,
                     },
 
                     { ///// WHOLESALE /////
-                      label: 'Wholesale',
+                      label: this.props.LegendTitles[1],
                       data: [
-                        this.state.chartData.secondResponse.data.total,
-                        this.state.chartData.secondResponse.data.completed,
-                        this.state.chartData.secondResponse.data.pending,
-                        this.state.chartData.secondResponse.data.error,
+                        this.state.chartData.response.data.sales_wholesale_cpe_process.pending,
+                        this.state.chartData.response.data.sales_wholesale_cpe_process.error,
+                        this.state.chartData.response.data.sales_wholesale_cpe_process.completed,
+                        this.state.chartData.response.data.sales_wholesale_cpe_process.total,
                       ],
                       backgroundColor: 
-                        'rgba(235, 42, 194, 0.5)',
+                        this.props.colors[1],
                       borderColor: 
-                        'rgba(235, 42, 194, 1)',
+                        this.props.colors[1],
                       borderWidth: 1,
                     },
                     
                     { ///// FOLD DEALS /////
-                      label: 'Fol Deals',
+                      label: this.props.LegendTitles[2],
                       data: [
-                        this.state.chartData.thirdResponse.data.total,
-                        this.state.chartData.thirdResponse.data.completed,
-                        this.state.chartData.thirdResponse.data.pending,
-                        this.state.chartData.thirdResponse.data.error,
+                        this.state.chartData.response.data.sales_foldeals_cpe_process.pending,
+                        this.state.chartData.response.data.sales_foldeals_cpe_process.error,
+                        this.state.chartData.response.data.sales_foldeals_cpe_process.completed,
+                        this.state.chartData.response.data.sales_foldeals_cpe_process.total,
                       ],
                       backgroundColor: 
-                        'rgba(255, 195, 0, 0.5)',
+                        this.props.colors[2],
                       borderColor: 
-                        'rgba(255, 195, 0, 0.5)',
+                        this.props.colors[2],
                       borderWidth: 1,
                     },
                     
@@ -100,77 +119,30 @@ class BarChart extends Component {
               options={{
                 title: {
                   display: this.props.displayTitle,
-                  text: 'Transactions',
-                  defaultProps: this.props.maintainAspectRatio
+                  text: this.props.titleText,
+                  fontSize: this.props.titleFontSize,
+                  defaultProps: this.props.maintainAspectRatio,
+                  isResponsive: this.props.isResponsive
                 },
                 legend: {
                   display: this.props.displayLegend,
                   position: this.props.legendPosition,
                   labels: {
-                    fontColor:'rgb(95, 95, 95)'
-                  },
-                  
-
-                  },
-
-                  events: HandleDrillDown,
-                
-
-                  
-
-                  // events: ['click'], onClick: function(event) {
-
-                  //   var data_type = this.state.chartData.data.label.getElementAtEvent(event)
-                  //    var data_data = this.state.chartData.data.datasets.data.getElementAtEvent(event)
-                  //                     if(data_type = undefined) {
-                    
-                  //                        var label = this.state.BarChart.data.datasets.label[data_type._index];
-                  //                        console.log("failed");
-                    
-                                       
-                    
-                  //                      if(data_data) {
-                    
-                  //                       var value = this.state.BarChart.data.datasets.data[data_data._datasetIndex].data[data_data._index];
-                    
-                    
-                                       
-                                       
-                                      
-                  //                     console.log(value)
-                  //                     console.log(label)
-
-
-         
-                  //                      }
-                  //                     }
-                  //                   },
-                                     
-                          
-
-                                    
-
-                
-              
-                
-
-
-
-
-
-                  
+                    fontColor:this.props.titleFontColor,
+                  }
+                },
 
                 scales: {
                   yAxes: [{
-                    stacked: true,
+                    stacked: this.props.stackedBars,
                     ticks: {
-                      beginAtZero: true
+                      beginAtZero: this.AxisAtZero
                     }
                   }],
                   xAxes: [{
-                    stacked: true,
+                    stacked: this.props.stackedBars,
                     ticks: {
-                      beginAtZero: true
+                      beginAtZero: this.AxisAtZero
                     }
                   }]
     
