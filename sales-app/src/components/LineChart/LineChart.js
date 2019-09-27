@@ -1,6 +1,6 @@
         import React, {Component} from 'react';
         import { Line } from 'react-chartjs-2';
-        import Moment from 'react-moment';
+        // import Moment from 'react-moment';
 
         class LineChart extends Component {
 

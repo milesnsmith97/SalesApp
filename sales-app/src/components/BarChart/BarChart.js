@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
+
+
 class BarChart extends Component {
 
 
+  
 
     constructor(props) {
+        
         super(props);
         this.state = {
-            chartData: props.chartData
+            chartData: props.chartData,
+            BarChart:props.BarChart
+            
         }
+        
+
     }
+
+    
+  
 
     static defaultProps = {
         displayTitle: true,
@@ -42,6 +53,7 @@ class BarChart extends Component {
     }
     
 
+    
     render() {
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
@@ -92,8 +104,13 @@ class BarChart extends Component {
                       borderColor: 
                         this.props.colors[2],
                       borderWidth: 1,
-                    }
-                  ]
+                    },
+                    
+                  ],
+                
+
+
+        
 
               }}
     
@@ -127,8 +144,15 @@ class BarChart extends Component {
                     }
                   }]
     
-                }
+                },
+                
+
+
+    
+
+                
               }}
+              
             />
             <br></br>
             <hr></hr>
@@ -136,5 +160,7 @@ class BarChart extends Component {
         )
       }
     }
+  
+  
     
     export default BarChart;
