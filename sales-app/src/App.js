@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+import ButtonAppBar from './components/NavBar/NavBar';
+
 import './App.css';
-import ButtonAppBar from './components/Toolbar/Toolbar';
+// import ButtonAppBar from './components/ButtonAppBar/ButtonAppBar'
 import SideDrawer from './components/SideDrawer/SideDrawer';
+import Toolbar from './components/Toolbar/Toolbar';
 import Backdrop from './components/Backdrop/Backdrop';
 import ChartSelect from './components/ChartSelect/ChartSelect';
 import BarChart from './components/BarChart/BarChart';
@@ -98,10 +102,14 @@ class App extends Component {
         backdrop = <Backdrop click={this.backdropClickHandler} />
       }
       return (
+        
         <div style={{ height: '100%' }}>
-          <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-          <SideDrawer show={this.state.sideDrawerOpen} />
-          {backdrop}
+          {/* <Toolbar drawerClickHandler={this.drawerToggleClickHandler} /> */}
+          {/* <SideDrawer show={this.state.sideDrawerOpen} />
+          {backdrop} */}
+          <div>
+            <ButtonAppBar />
+          </div>
           <main style={{ marginTop: '64px' }}>
         
           </main>

@@ -47,7 +47,7 @@ class BarChart extends Component {
         return (
 
           <div className="chart" id="chart">
-            <Bar
+            <Bar id="barChart"
               data={{
                 labels: this.props.labels,
                 datasets: [
