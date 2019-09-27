@@ -61,6 +61,28 @@
   font-size: calc(7px + 2vmin);
   color: #EFEFEF;
   background-color: #ffffff;
+  box-shadow: 1px 0 1px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+}
+
+.Button-Container div {
+  display: inline-flex;
+  background-color: #ffffff;
+  
+}
+
+.Filter-Nav {
+  background-color: #EDEFEE;
+  padding: 15px;
+  /* font-size: 1.5rem; */
+  font-weight: 550;
+  color: #186836;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  position: relative;
 }
 
 @keyframes App-logo-spin {

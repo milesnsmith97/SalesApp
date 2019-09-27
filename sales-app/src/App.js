@@ -9,9 +9,11 @@ import './App.css';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Toolbar from './components/Toolbar/Toolbar';
 import Backdrop from './components/Backdrop/Backdrop';
-import ChartSelect from './components/ChartSelect/ChartSelect';
+// import ChartSelect from './components/ChartSelect/ChartSelect';
 import BarChart from './components/BarChart/BarChart';
 import LineChart from './components/LineChart/LineChart';
+import DateSelect from './components/DateSelect/DateSelect';
+import SelectRange from './components/DateSelect/SelectRange';
 // import PolarChart from './components/PolarChart/PolarChart';
 // import Chart from './components/Chart';
 
@@ -114,29 +116,33 @@ class App extends Component {
         
           </main>
 
-          <div className="App-Header-Page-Title">
+          {/* <div className="App-Header-Page-Title">
             <header className="Page-Header">
               <p>DASHBOARD</p>
-              {/* <SelectBox /> */}
+                <SelectBox />
             </header>
-          </div>
+          </div> */}
             <br></br>
             <div className="Chart-Style">
               <BarChart chartData={this.state.chartData} />
             
               
             </div>
-            <div className="Chart-Style">
+            <div className="Filter-Nav">
               <div className="Button-Container">
                   <div className="dropdown">
-                    <ChartSelect />
+                    <SelectRange />
+                    <DateSelect />
                   </div>
-                  <LineChart chartData={this.state.chartData} />
+                  {/* <LineChart chartData={this.state.chartData} /> */}
               </div>
+              
 
               
             </div>
-
+            <div className="ChartStyle">
+                  <LineChart chartData={this.state.chartData} />
+              </div>
             
             <br></br>
           
