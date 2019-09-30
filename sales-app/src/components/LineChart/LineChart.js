@@ -1,5 +1,7 @@
         import React, {Component} from 'react';
         import { Line } from 'react-chartjs-2';
+        import './LineChart.css';
+    
         // import Moment from 'react-moment';
 
         class LineChart extends Component {
@@ -51,7 +53,7 @@
 
         render() {
         return (
-            <div>
+            <div className="chart" height="100%">
                 <Line
                     data={{
                         datasets: [

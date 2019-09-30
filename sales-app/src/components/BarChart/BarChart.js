@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
+import './BarChart.css';
 
 class BarChart extends Component {
 
@@ -45,8 +46,7 @@ class BarChart extends Component {
     render() {
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
-
-          <div className="chart" id="chart">
+          <div className="chart" id="chart" height="100%">
             <Bar id="barChart"
               data={{
                 labels: this.props.labels,
@@ -103,7 +103,7 @@ class BarChart extends Component {
                   text: this.props.titleText,
                   fontSize: this.props.titleFontSize,
                   defaultProps: this.props.maintainAspectRatio,
-                  isResponsive: this.props.isResponsive
+                  responsive: this.props.isResponsive
                 },
                 legend: {
                   display: this.props.displayLegend,
@@ -130,9 +130,11 @@ class BarChart extends Component {
                 }
               }}
             />
+
             <br></br>
-            <hr></hr>
+            {/* <hr></hr> */}
           </div>
+
         )
       }
     }

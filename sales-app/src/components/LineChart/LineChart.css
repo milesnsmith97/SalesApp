@@ -1,0 +1,16 @@
+.chart {
+    margin: auto;
+    padding: 0rem 2rem 0rem 2rem;
+    background-color: white;
+    /* border: solid rgb(172, 170, 170) 0.1px; */
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    position: relative;
+    display: flex;
+}
+
+.canvas {
+    height: 100%;
+    display: flex;
+    padding: 100px;
+}

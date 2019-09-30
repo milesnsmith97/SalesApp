@@ -114,7 +114,7 @@ class App extends Component {
       // }
       return (
         
-        <div style={{ height: '100%' }}>
+        <div style={{ height: '100%' }} className="Main-App">
           {/* <Toolbar drawerClickHandler={this.drawerToggleClickHandler} /> */}
           {/* <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop} */}
@@ -124,15 +124,6 @@ class App extends Component {
           <main style={{ marginTop: '64px' }}>
         
           </main>
-
-          {/* <div className="App-Header-Page-Title">
-            <header className="Page-Header">
-              <p>DASHBOARD</p>
-                <SelectBox />
-            </header>
-          </div> */}
-
-
             <div className="Chart-Style">
               <BarChart chartData={this.state.chartData} />
             
@@ -144,13 +135,15 @@ class App extends Component {
                     <SelectRange />
                     <DateSelect />
                   </div>
-                  {/* <LineChart chartData={this.state.chartData} /> */}
               </div>
               
 
               
             </div>
-            <div className="ChartStyle">
+            <div className="Line-Chart-Style">
+                    <SelectRange />
+                    <DateSelect />
+                    <hr></hr>
                   <LineChart chartData={this.state.chartData} />
               </div>
             
