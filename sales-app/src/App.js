@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-import ButtonAppBar from './components/NavBar/NavBar';
-
 import './App.css';
-// import ButtonAppBar from './components/ButtonAppBar/ButtonAppBar'
-import SideDrawer from './components/SideDrawer/SideDrawer';
-import Toolbar from './components/Toolbar/Toolbar';
-import Backdrop from './components/Backdrop/Backdrop';
-// import ChartSelect from './components/ChartSelect/ChartSelect';
 import BarChart from './components/BarChart/BarChart';
 import LineChart from './components/LineChart/LineChart';
 import DateSelect from './components/DateSelect/DateSelect';
 import SelectRange from './components/DateSelect/SelectRange';
+import ButtonAppBar from './components/NavBar/NavBar';
+import Loading from './components/Loading';
+
+
+// import Backdrop from './components/Backdrop/Backdrop';
+// import Toolbar from './components/Toolbar/Toolbar';
+// import SideDrawer from './components/SideDrawer/SideDrawer';
+// import ButtonAppBar from './components/ButtonAppBar/ButtonAppBar'
+// import ChartSelect from './components/ChartSelect/ChartSelect';
 // import PolarChart from './components/PolarChart/PolarChart';
 // import Chart from './components/Chart';
 
@@ -22,11 +24,11 @@ import SelectRange from './components/DateSelect/SelectRange';
 
 const API_EVERYTHING = 'https://cors-anywhere.herokuapp.com/https://qmyxgbg5bl.execute-api.eu-west-2.amazonaws.com/dev/getlatest'
 
-const API_ONLINE = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_online_cpe_process'
+// const API_ONLINE = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_online_cpe_process'
 
-const API_WHOLESALE = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_wholesale_cpe_process'
+// const API_WHOLESALE = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_wholesale_cpe_process'
 
-const API_FOLDEALS = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_foldeals_cpe_process'
+// const API_FOLDEALS = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_foldeals_cpe_process'
 
 ///////////////////////////////////////////////////////////
 
@@ -95,14 +97,19 @@ class App extends Component {
   render() {
     var { isLoaded } = this.state; //access properties within the state
     if (!isLoaded) {              //If not loaded display loading div
-      return <div>Loading...</div>
+      return (
+      <div style={{ height: '100%' }} className="Loading-Container">
+        <div className="Loading-Circle"><Loading/>
+
+        </div>
+      </div>)
     } else {
 
-      let backdrop;
+      // let backdrop;
 
-      if (this.state.sideDrawerOpen) {
-        backdrop = <Backdrop click={this.backdropClickHandler} />
-      }
+      // if (this.state.sideDrawerOpen) {
+      //   backdrop = <Backdrop click={this.backdropClickHandler} />
+      // }
       return (
         
         <div style={{ height: '100%' }}>
@@ -122,7 +129,7 @@ class App extends Component {
                 <SelectBox />
             </header>
           </div> */}
-            <br></br>
+            
             <div className="Chart-Style">
               <BarChart chartData={this.state.chartData} />
             

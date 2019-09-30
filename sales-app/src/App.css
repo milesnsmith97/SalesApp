@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.Loading-Container div {
+  justify-content: center;
+  text-align: center;
+  background-color: #005E46;
+  /* width: 100%; */
+  margin: 0 0 50px 0;
+  padding: 100px;
+}
+
 .App-Header-Page-Title {
   text-align: center;
   font-size: calc(7px + 2vmin);
@@ -61,8 +70,8 @@
   font-size: calc(7px + 2vmin);
   color: #EFEFEF;
   background-color: #ffffff;
-  box-shadow: 1px 0 1px rgba(0, 0, 0, 0.5);
-  border-radius: 25px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+  
 }
 
 .Button-Container div {
@@ -72,7 +81,7 @@
 }
 
 .Filter-Nav {
-  background-color: #EDEFEE;
+  background-color: #EFEFFF;
   padding: 15px;
   /* font-size: 1.5rem; */
   font-weight: 550;

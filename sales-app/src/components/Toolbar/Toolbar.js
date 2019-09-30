@@ -6,7 +6,7 @@
 //     <header className="toolbar">
 //         <nav className="toolbar-navigation">
 //             <div className="toolbar-toggle-button">
-//                 <DrawerToggleButton click={props.drawerClickHandler} />
+                // <DrawerToggleButton click={props.drawerClickHandler} />
 //             </div>
 //             <div className="toolbar-logo"><a href="/">SERVICE</a></div>
 //             <div className="spacer" />

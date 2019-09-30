@@ -5,7 +5,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-import DrawerToggleButton from '../SideDrawer/DrawerToggleButton'
+// import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
+
+// import DrawerToggleButton from '../SideDrawer/DrawerToggleButton'
 
 
 // import IconButton from '@material-ui/core/IconButton';
@@ -34,6 +36,7 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position='fixed' className={classes.ButtonAppBar} >
         <Toolbar>
+          {/* <DrawerToggleButton click={props.drawerClickHandler} /> */}
           {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton> */}
