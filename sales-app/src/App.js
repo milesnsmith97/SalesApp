@@ -156,12 +156,7 @@ class App extends Component {
           </main>
             <div className="Chart-Style">
           
-          
 
-
-          <div>
-          <LightboxExample/>
-           </div>
           
             <BarChart chartData={this.state.chartData} />
               {/* <OnClick OnClick={this.state.OnClick}                  /> */}
