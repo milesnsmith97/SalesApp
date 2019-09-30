@@ -49,6 +49,13 @@ class App extends Component {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
+
+  selectOtherClickHandler = () => {
+    this.setState((prevState) => {
+      return { dateSelectOpen: !prevState.dateSelectOpen };
+    })
+  }
+
   // chartSelectClickHandler = () => {
   //   this.setState((prevState) => {
   //     return { lineChartOneOpen: !prevState.lineChartOneOpen };
@@ -67,6 +74,7 @@ class App extends Component {
       chartData: [],
       drillDownData: [],
       sideDrawerOpen: false,
+      dateSelectOpen: false,
       chartOptions:{
         title: {
           display: this.props.displayTitle,
@@ -166,13 +174,17 @@ class App extends Component {
             <div className="Filter-Nav">
               <div className="Button-Container">
                   <div className="dropdown">
-                    <SelectRange />
-                    <DateSelect />
+                    <SelectRange OtherClickHandler={this.selectOtherClickHandler} />
+                    {/* <DateSelect show={this.state.dateSelectOpen} /> */}
                   </div>
               </div>
+              <br></br>
+            <div className="Filter-Nav">
+              <div className="Date-Container">
+                  <DateSelect show={this.state.dateSelectOpen} />
+              </div>
+            </div>
               
-
-
               
             </div>
             <div className="Line-Chart-Style">

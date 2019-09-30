@@ -6,7 +6,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 // import FormHelperText from '@material-ui/core/FormHelperText';
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -18,7 +17,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleSelect() {
+// export default function SimpleSelect() {
+export default function SimpleSelect(props) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
@@ -37,6 +37,7 @@ export default function SimpleSelect() {
       [event.target.name]: event.target.value,
     }));
   };
+
 
   return (
       
@@ -78,7 +79,7 @@ export default function SimpleSelect() {
             labelWidth={labelWidth}
             inputProps={{
                 name: 'age',
-                id: 'outlined-age-simple',
+                id: 'outlined-  age-simple',
             }}
             >
             <MenuItem value="">
@@ -93,6 +94,7 @@ export default function SimpleSelect() {
             <MenuItem value={"3 Days"}>3 Days</MenuItem>
             <MenuItem value={"48 Hours"}>48 Hours</MenuItem>
             <MenuItem value={"24 Hours"}>24 Hours</MenuItem>
+            <MenuItem value={"Other"} onClick={props.click}>Other</MenuItem>
             </Select>
         </FormControl>
         

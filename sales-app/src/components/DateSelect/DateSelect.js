@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './RangeSelect.css'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
@@ -25,10 +26,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function DatePickers() {
+export default function DatePickers(props) {
   const classes = useStyles();
-
+  
+  let DateClasses = 'date-select';
+  if (props.show) {
+    DateClasses = 'date-select open';
+  }
   return (
+    <div className={DateClasses}>
     <form className={classes.container} noValidate>
     <div className={classes.DateFrom}>
       <TextField
@@ -55,5 +61,6 @@ export default function DatePickers() {
       />
       </div>
     </form>
+    </div>
   );
 }

@@ -89,20 +89,38 @@
   color: #EFEFEF;
   background-color: #ffffff;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
-  
+  border: solid black 0.15px;
+  border-radius: 4px;
+  display: inline-flex;
+  padding: 5px 5px 5px 10px;
 }
 
-.Button-Container div {
+/* .Date-Container {
+  text-align: center;
+  font-size: calc(7px + 2vmin);
+  color: #EFEFEF;
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
+  border: solid black 0.15px;
+  border-radius: 4px;
+  display: inline-flex;
+  padding: 5px 5px 5px 10px;
+} */
+
+/* .Button-Container div {
   display: inline-flex;
   background-color: #ffffff;
   padding: 5px 5px 5px 10px;
-  /* border-radius: 40px; */
   
-}
+  
+  
+} */
 
 .Filter-Nav {
-  padding: 15px;
+  /* padding: 15px; */
   /* font-size: 1.5rem; */
+  border: solid black 0.15px;
+  border-radius: 4px;
   font-weight: 550;
   color: #186836;
   display: flex;

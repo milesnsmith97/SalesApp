@@ -5,10 +5,6 @@ import './BarChart.css';
 
 
 class BarChart extends Component {
-
-
-  
-
     constructor(props) {
         
         super(props);
@@ -20,9 +16,6 @@ class BarChart extends Component {
         
 
     }
-
-    
-  
 
     static defaultProps = {
         displayTitle: true,
