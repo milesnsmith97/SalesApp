@@ -176,9 +176,6 @@ class App extends Component {
               
             </div>
             <div className="Line-Chart-Style">
-                    <SelectRange />
-                    <DateSelect />
-                    <hr></hr>
                   <LineChart chartData={this.state.chartData} />
               </div>
             
