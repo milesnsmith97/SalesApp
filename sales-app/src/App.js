@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+
 import './App.css';
 import BarChart from './components/BarChart/BarChart';
 import LineChart from './components/LineChart/LineChart';
@@ -9,6 +10,7 @@ import DateSelect from './components/DateSelect/DateSelect';
 import SelectRange from './components/DateSelect/SelectRange';
 import ButtonAppBar from './components/NavBar/NavBar';
 import Loading from './components/Loading';
+
 
 
 // import Backdrop from './components/Backdrop/Backdrop';
@@ -129,7 +131,8 @@ class App extends Component {
                 <SelectBox />
             </header>
           </div> */}
-            
+
+
             <div className="Chart-Style">
               <BarChart chartData={this.state.chartData} />
             

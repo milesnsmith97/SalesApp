@@ -1,6 +1,6 @@
         import React, {Component} from 'react';
         import { Line } from 'react-chartjs-2';
-        import Moment from 'react-moment';
+        // import Moment from 'react-moment';
 
         class LineChart extends Component {
 
@@ -58,7 +58,6 @@
                             {
                                 label:this.props.LegendTitles[0],
                                 data: this.state.chartData.response.data.sales_online_cpe_process.total,
-                                //    [ this.state.chartData.response.data.created_dt],
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [0],
                                 borderWidth: 2,
@@ -109,10 +108,6 @@
                                 ticks: {
                                     beginAtZero: this.props.AxisAtZero
                                 },
-                                // type:'time',
-                                // time: {
-                                //     unit: 'month'
-                                // }
                             }],
                             yAxes: [{
                                 stacked: this.props.stackedBars,
