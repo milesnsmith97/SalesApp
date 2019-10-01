@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function DatePickers(props) {
+const DatePickers = props => {
   const classes = useStyles();
   
   let DateClasses = 'date-select';
@@ -34,7 +34,7 @@ export default function DatePickers(props) {
     DateClasses = 'date-select open';
   }
   return (
-    <div className={DateClasses}>
+    // <div className={DateClasses}>
     <form className={classes.container} noValidate>
     <div className={classes.DateFrom}>
       <TextField
@@ -61,6 +61,8 @@ export default function DatePickers(props) {
       />
       </div>
     </form>
-    </div>
+    // </div>
   );
-}
+};
+
+export default DatePickers;

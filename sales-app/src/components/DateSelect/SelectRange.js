@@ -5,8 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-
-import FormHelperText from '@material-ui/core/FormHelperText';
+// import FormHelperText from '@material-ui/core/FormHelperText';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -18,14 +17,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleSelect() {
-// export default function SimpleSelect(props) {
+
+const SimpleSelect = props => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
     name: 'hai',
   });
-
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
@@ -38,38 +36,7 @@ export default function SimpleSelect() {
       [event.target.name]: event.target.value,
     }));
   };
-
-// const SimpleSelect = props => {
-//   const classes = useStyles();
-//   const [values, setValues] = React.useState({
-//     age: '',
-//     name: 'hai',
-//   });
-
-//   const inputLabel = React.useRef(null);
-//   const [labelWidth, setLabelWidth] = React.useState(0);
-//   React.useEffect(() => {
-//     setLabelWidth(inputLabel.current.offsetWidth);
-//   }, []);
-
-//   const handleChange = event => {
-//     setValues(oldValues => ({
-//       ...oldValues,
-//       [event.target.name]: event.target.value,
-//     }));
-//   };
-//   const useStyles = makeStyles(theme => ({
-//     root: {
-//       display: 'flex',
-//       flexWrap: 'wrap'
-//     },
-//     formControl: {
-//       margin: theme.spacing(1),
-//       minWidth: 200,
-//     },
-//   }));
   return (
-      
     <form className={classes.root} autoComplete="off">
     <div>
       <FormControl variant="filled" className={classes.formControl}>
@@ -108,7 +75,7 @@ export default function SimpleSelect() {
             labelWidth={labelWidth}
             inputProps={{
                 name: 'age',
-                id: 'outlined-  age-simple',
+                id: 'outlined-age-simple',
             }}
             >
             <MenuItem value="">
@@ -123,13 +90,14 @@ export default function SimpleSelect() {
             <MenuItem value={"3 Days"}>3 Days</MenuItem>
             <MenuItem value={"48 Hours"}>48 Hours</MenuItem>
             <MenuItem value={"24 Hours"}>24 Hours</MenuItem>
-            <MenuItem value={""} >Other</MenuItem>
+            <MenuItem value={"Other"}>Custom Range</MenuItem>
             </Select>
         </FormControl>
         
         
         </div>
         </form>
-  );
+  )
 }
-// export default SimpleSelect;
+
+export default SimpleSelect;

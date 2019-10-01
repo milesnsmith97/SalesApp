@@ -178,9 +178,9 @@ class App extends Component {
                     <SelectRange OtherClickHandler={this.selectOtherClickHandler} />
                     {/* <DateSelect show={this.state.dateSelectOpen} /> */}
                   </div>
-              </div>
+              {/* </div> */}
               <br></br>
-            <div className="Filter-Nav-two">
+            {/* <div className="Filter-Nav-two"> */}
               <div className="Date-Container">
                   <DateSelect show={this.state.dateSelectOpen} />
               </div>

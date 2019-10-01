@@ -95,7 +95,7 @@
   padding: 5px 5px 5px 5px;
 }
 
-/* .Date-Container {
+.Date-Container {
   text-align: center;
   font-size: calc(7px + 2vmin);
   color: #EFEFEF;
@@ -105,7 +105,7 @@
   border-radius: 4px;
   display: inline-flex;
   padding: 5px 5px 5px 5px;
-} */
+}
 
 /* .Button-Container div {
   display: inline-flex;
