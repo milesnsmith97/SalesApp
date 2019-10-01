@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+
 // import FormHelperText from '@material-ui/core/FormHelperText';
 const useStyles = makeStyles(theme => ({
   root: {
@@ -94,7 +95,7 @@ export default function SimpleSelect(props) {
             <MenuItem value={"3 Days"}>3 Days</MenuItem>
             <MenuItem value={"48 Hours"}>48 Hours</MenuItem>
             <MenuItem value={"24 Hours"}>24 Hours</MenuItem>
-            <MenuItem value={"Other"} onClick={props.click}>Other</MenuItem>
+            <MenuItem value={props.click} >Other</MenuItem>
             </Select>
         </FormControl>
         

@@ -53,8 +53,9 @@ class App extends Component {
   selectOtherClickHandler = () => {
     this.setState((prevState) => {
       return { dateSelectOpen: !prevState.dateSelectOpen };
-    })
-  }
+    });
+    console.log('option selected')
+  };
 
   // chartSelectClickHandler = () => {
   //   this.setState((prevState) => {
@@ -179,7 +180,7 @@ class App extends Component {
                   </div>
               </div>
               <br></br>
-            <div className="Filter-Nav">
+            <div className="Filter-Nav-two">
               <div className="Date-Container">
                   <DateSelect show={this.state.dateSelectOpen} />
               </div>

@@ -1,15 +1,19 @@
 .date-select {
     height:100%;
     background: #FFFFFF;
-    
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
     position: relative;
-    top: 0;
-    left: 0;
-    width: 70%;
+    /* top: 0; */
+    /* left: 0; */
+    width: 80%;
     max-width: 600px;
+    min-height: auto;
     z-index: 200;
     transform: translateX(20%);
+    display: flex;
+    border-radius: 4px;
     /* transition: transform 0.3s ease-out; */
+    
 }
 
 .side-drawer.open {
