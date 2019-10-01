@@ -101,32 +101,32 @@ class App extends Component {
 
   componentDidMount() {
     this.getChartData();
-    this.getDrillDownData();
+    // this.getDrillDownData();
   }
 
-  async getDrillDownData() {
-    axios.all([axios.get(API_FOLDDEALS_ERROR),
-    axios.get(API_ONLINE_ERROR),
-    axios.get(API_WHOLESALE_ERROR)])
-      .then(await axios.spread((responseone, responsetwo, responsethree ) => {
-        this.setState({
-          isLoaded: true,
-          drillDownData: Object.assign({}, { responseone, responsetwo , responsethree,  })
+  // async getDrillDownData() {
+  //   axios.all([axios.get(API_FOLDDEALS_ERROR),
+  //   axios.get(API_ONLINE_ERROR),
+  //   axios.get(API_WHOLESALE_ERROR)])
+  //     .then(await axios.spread((responseone, responsetwo, responsethree ) => {
+  //       this.setState({
+  //         isLoaded: true,
+  //         drillDownData: Object.assign({}, { responseone, responsetwo , responsethree,  })
          
-        })
-        console.log({responseone, responsetwo, responsethree})
-      }
-      ))
-  }
+  //       })
+  //       console.log({responseone, responsetwo, responsethree})
+  //     }
+  //     ))
+  // }
 
   async getChartData(){
     axios.all([axios.get(API_EVERYTHING)])
-      .then(await axios.spread((response) => {
+      .then(await axios.spread((everything) => {
         this.setState({
           isLoaded: true,
-          chartData: Object.assign({}, { response })
+          chartData: Object.assign({}, { everything })
         })
-        console.log(response)
+        console.log("everything: "+ everything)
       }))
   }
 

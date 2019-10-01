@@ -44,62 +44,71 @@ class BarChart extends Component {
         titleFontColor: 'rgb(95, 95, 95)',
         stackedBars: true,
         AxisAtZero: true,
+        datasetArray: []
     }
     
 
     
     render() {
+
+      
+      var result = this.state.chartData.everything.data
+      var resultKeys = Object.keys(result)
+      var datasetArray =this.props.datasetArray
+      String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
+      
+      
+      for (var i=0; i<resultKeys.length; i++) {
+        
+        var scenarioName = resultKeys[i]
+        // var scenString = JSON.stringify(scenarioName)
+        // var scenString = JSON.stringify(scenarioName)
+        var lab = scenarioName.replace(/_|cpe|sales|process/g, "" )
+        lab =lab.replace(/fold/g, "FOL D")
+        lab = lab.replace(lab[0], lab[0].toUpperCase())
+        // var lab = scenarioName.replace(/"cpe"/g, "" )
+        var scenarioObject = result[scenarioName]
+        delete scenarioObject.created_dt
+        var scenarioObjectKey = Object.keys(scenarioObject)
+        // newObj[scenarioName] = scenarioObject.pending
+        // newObj[scenarioName] = scenarioObject.pending
+        var orderArray = ["pending", "error", "completed", "total"]
+        
+        
+        var newDataset = {
+          label: lab,
+            data: [],
+            backgroundColor: this.props.colors[i],
+            borderColor: this.props.colors[i],
+            borderWidth: 1,
+        }     
+          
+        for(var j = 0; j< scenarioObjectKey.length; j++){
+            var obj = scenarioObject[orderArray[j]]
+
+        newDataset.data[j] = obj
+        
+        
+      } 
+      datasetArray.push(newDataset)
+    
+      // data.datasets.push(dataSetArray[i])
+      // bar111.data.push(dataSetArray[i])
+      // this.state.chartData.data.datasets.push(dataSetArray)
+      // this.state.dataSets.push(newDataset);
+      console.log("dataSetArray: "+JSON.stringify("LOOKHERE: "+this.props.dataSetArray))
+      
+
+  }
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
           <div className="chart" id="chart" height="100%">
             <Bar id="barChart"
               data={{
                 labels: this.props.labels,
-                datasets: [
-                    { ///// ONLINE /////
-                      label: this.props.LegendTitles[0],
-                      data: [
-                        this.state.chartData.response.data.sales_online_cpe_process.pending,
-                        this.state.chartData.response.data.sales_online_cpe_process.error,
-                        this.state.chartData.response.data.sales_online_cpe_process.completed,
-                        this.state.chartData.response.data.sales_online_cpe_process.total,
-                      ],
-                      backgroundColor: this.props.colors[0],
-                      borderColor: this.props.colors[0],
-                      borderWidth: 1,
-                    },
-
-                    { ///// WHOLESALE /////
-                      label: this.props.LegendTitles[1],
-                      data: [
-                        this.state.chartData.response.data.sales_wholesale_cpe_process.pending,
-                        this.state.chartData.response.data.sales_wholesale_cpe_process.error,
-                        this.state.chartData.response.data.sales_wholesale_cpe_process.completed,
-                        this.state.chartData.response.data.sales_wholesale_cpe_process.total,
-                      ],
-                      backgroundColor: 
-                        this.props.colors[1],
-                      borderColor: 
-                        this.props.colors[1],
-                      borderWidth: 1,
-                    },
-                    
-                    { ///// FOLD DEALS /////
-                      label: this.props.LegendTitles[2],
-                      data: [
-                        this.state.chartData.response.data.sales_foldeals_cpe_process.pending,
-                        this.state.chartData.response.data.sales_foldeals_cpe_process.error,
-                        this.state.chartData.response.data.sales_foldeals_cpe_process.completed,
-                        this.state.chartData.response.data.sales_foldeals_cpe_process.total,
-                      ],
-                      backgroundColor: 
-                        this.props.colors[2],
-                      borderColor: 
-                        this.props.colors[2],
-                      borderWidth: 1,
-                    },
-                    
-                  ],
+                datasets: this.props.datasetArray
                 
 
 
