@@ -6,13 +6,20 @@
   background-color: rgb(188, 206, 214,0.15);
 }
 
-.Loading-Container div {
-  justify-content: center;
+.Loading-Container {
   text-align: center;
-  background-color: #005E46;
-  /* width: 100%; */
-  margin: 0 0 50px 0;
-  padding: 100px;
+  display:inline-block;
+  position:fixed;
+  top:50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+  /* background-color: #005E46; */
+}
+
+.App-logo {
+  width: 200px;
+  padding-bottom: 0;
 }
 
 .App-Header-Page-Title {
@@ -25,7 +32,6 @@
 .Page-Header {
   background-color: #F8F8F8;
   padding: 5px;
-  /* font-size: 1.5rem; */
   font-weight: 550;
   color: #186836;
   display: flex;
@@ -33,12 +39,7 @@
   align-items: center;
   justify-content: center;
   min-height: auto;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  /* font-size: 1.5rem; */
 }
 
 .App-header {
@@ -58,30 +59,23 @@
 }
 
 .Chart-Style {
-  padding: 30px 80px 30px 30px;
-  /* padding: 20px; */
+  padding: 20px;
   margin: 70px;
   margin-bottom: 0;
   height: 100%;
+  /* padding: 30px 70px 30px 30px; */
   /* display: flex; */
 }
 
 .Line-Chart-Style {
-  padding: 30px 80px 30px 30px;
-  /* padding: 20px; */
+  padding: 30px 70px 30px 30px;
   margin: 70px;
   margin-top: 0;
   margin-bottom: 0;
   height: 100%;
+  /* padding: 20px; */
   /* display: flex; */
 }
-
-/* .chart hr {
-  width: 100%;
-  border: none;
-  height: 1.5px;
-  background: #dddddd;
-} */
 
 .Button-Container {
   text-align: center;
@@ -92,10 +86,12 @@
   border: solid black 0.15px;
   border-radius: 4px;
   display: inline-flex;
-  padding: 5px 5px 5px 5px;
+  /* padding: 5px 5px 5px 5px; */
 }
 
-.Date-Container {
+
+
+/* .Date-Container {
   text-align: center;
   font-size: calc(7px + 2vmin);
   color: #EFEFEF;
@@ -105,39 +101,29 @@
   border-radius: 4px;
   display: inline-flex;
   padding: 5px 5px 5px 5px;
-}
+} */
 
 /* .Button-Container div {
   display: inline-flex;
   background-color: #ffffff;
   padding: 5px 5px 5px 10px;
-  
-  
-  
 } */
 
+
+
 .Filter-Nav {
-  padding-left: 15px;
-  margin-left: 20px;
-  padding-right: 0;
+  padding:0;
+  margin: 0;
   border-radius: 4px;
-  font-weight: 550;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: auto;
   position: relative;
+  width: 100%;
+  /* width: 100%; */
 }
 
-.Filter-Nav-two {
-  margin-left: 0px;
-  border-radius: 4px;
-  font-weight: 550;
-  display: inline-flex;
-  min-height: auto;
-  position: relative;
-  max-width: 400px;
-}
 
 @keyframes App-logo-spin {
   from {

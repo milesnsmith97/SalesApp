@@ -5,6 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+// import Logo from './components/img/MorrisonsLogo.png';
+
 // import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 
 // import DrawerToggleButton from '../SideDrawer/DrawerToggleButton'
@@ -19,7 +21,7 @@ const useStyles = makeStyles (theme => ({
   },
   ButtonAppBar:{
     flexGrow: 1,
-    backgroundColor:'#005E46',
+    backgroundColor:'rgb(0,78,55)',
   },
   menuButton: {
     marginRight: theme.spacing(2),

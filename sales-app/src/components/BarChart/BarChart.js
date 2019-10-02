@@ -33,8 +33,8 @@ class BarChart extends Component {
         isResponsive: true,
         colors: [
                 'rgba(45, 145, 245, 0.5)',  // Blue
-                'rgba(235, 42, 194, 0.5)',  // Wholesale
-                'rgba(255, 195, 0, 0.5)'    // FOL Deals
+                'rgba(231, 76, 60, 0.5)',  // Wholesale
+                'rgba(248, 189, 0, 0.5)'    // FOL Deals
               ],
         LegendTitles: [
                       'Online', 
