@@ -57,35 +57,36 @@
             <div className="chart" height="100%">
                 <Line
                     data={{
+                        labels: ["00:00", "01:00", "02:00","03:00", "04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"],
                         datasets: [
                             {
-                                label:this.props.LegendTitles[0],
-                                data: this.state.chartData.everything.data.sales_online_cpe_process.total,
-                                backgroundColor: this.props.colorFill,
-                                borderColor: this.props.colors [0],
-                                borderWidth: 2,
-                            },
-                            {
-                                label:this.props.LegendTitles[1],
-                                data: this.state.chartData.everything.data.sales_online_cpe_process.completed,
+                                label:"Pending",
+                                data: [20, 25, 32, 33, 35, 40, 41, 42, 44, 40, 35, 37, 40, 39, 36, 35, 34, 30,28, 25, 22, 20, 15, 11],
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [1],
                                 borderWidth: 2,
                             },
                             {
-                                label:this.props.LegendTitles[2],
-                                data: this.state.chartData.everything.data.sales_online_cpe_process.total,
+                                label:"Error",
+                                data: [2, 3, 6, 5, 8, 6, 7, 10, 12, 12, 12, 14, 16, 16, 16, 17, 18, 18,18, 20, 18, 13, 10, 10],
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [2],
                                 borderWidth: 2,
                             },
                             {
-                                label:this.props.LegendTitles[3],
-                                data: this.state.chartData.everything.data.sales_online_cpe_process.error,
+                                label:"Completed",
+                                data: [8, 9, 4, 8, 8, 10,14, 18, 20, 22, 25, 29, 35, 39, 45, 54, 63, 66,69, 70, 73, 74, 79, 84],
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [3],
                                 borderWidth: 2,
                           
+                            },
+                            {    
+                                label:"Total",
+                                data: [30, 37, 42, 46, 50, 60, 66, 67, 70, 72, 73, 75, 80, 81, 84, 89, 90, 91,92, 94, 95, 95, 96, 100],
+                                backgroundColor: this.props.colorFill,
+                                borderColor: this.props.colors [0],
+                                borderWidth: 2,
                             }
                         ]
                         }}
@@ -107,13 +108,13 @@
                         },
                         scales: {
                             xAxes: [{
-                                stacked: this.props.stackedBars,
+                                stacked: false,
                                 ticks: {
                                     beginAtZero: this.props.AxisAtZero
                                 },
                             }],
                             yAxes: [{
-                                stacked: this.props.stackedBars,
+                                stacked: false,
                                 ticks: {
                                     beginAtZero: this.props.AxisAtZero
                                 },
