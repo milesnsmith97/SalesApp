@@ -20,7 +20,7 @@
             titleFontSize: 17,
             titleFontColor: 'rgb(95, 95, 95)',
             displayLegend: true,
-            legendPosition: 'bottom',
+            legendPosition: 'right',
             maintainAspectRatio: false,
             isResponsive: true,
             labels: [
@@ -36,9 +36,9 @@
             scaleLabelText: 'Process Status / Count',
             colors: [
                     'rgba(45, 145, 245, 1)',    // Blue 
-                    'rgba(80, 243, 43, 1)',     // Green
                     'rgba(243, 168, 43, 1)',    // Yellow
                     'rgba(199, 0, 57, 1)',      // Red
+                    'rgba(80, 243, 43, 1)',     // Green
                     ],
             colorFill:
                     'rgba(45, 145, 245, 0)',

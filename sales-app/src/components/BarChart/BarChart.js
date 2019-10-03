@@ -76,9 +76,8 @@ class BarChart extends Component {
         
         
         var newDataset = {
-          label: lab,
+          label: [lab],
             data: [],
-            labels: "sum",
             backgroundColor: this.props.colors[i],
             borderColor: this.props.colors[i],
             borderWidth: 1,
@@ -116,6 +115,18 @@ class BarChart extends Component {
                   responsive: this.props.isResponsive,
                   fontSize: this.props.titleFontSize,
                 },
+                tooltips: {
+                  enabled: true,
+                  callbacks: {
+                    label: function(tooltipItem, data) {
+                      var label = data.labels[tooltipItem.index];
+                      var val = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                      return label + ':' + val  + ", sum: £"+ Math.floor(Math.random() * 300) + 1+ ', (' + (100 * val / 130).toFixed(0) + '%),'
+                    }
+                  }
+            
+                }
+              ,
                 legend: {
                   display: this.props.displayLegend,
                   position: this.props.legendPosition,
