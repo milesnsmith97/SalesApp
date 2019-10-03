@@ -67,7 +67,7 @@
                                 borderWidth: 2,
                             },
                             {
-                                label:["Error","sum"],
+                                label:"Error",
                                 data: [2, 3, 6, 5, 8, 6, 7, 10, 12, 12, 12, 14, 16, 16, 16, 17, 18, 18,18, 20, 18, 13, 10, 10],
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [2],
