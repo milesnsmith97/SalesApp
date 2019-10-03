@@ -50,7 +50,6 @@ class BarChart extends Component {
 
     
     render() {
-
       
       var result = this.state.chartData.everything.data
       var resultKeys = Object.keys(result)
