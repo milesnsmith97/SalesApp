@@ -20,7 +20,7 @@ class BarChart extends Component {
     static defaultProps = {
         displayTitle: true,
         titleText: 'Transactions',
-        titleFontSize: 25,
+        titleFontSize: 17,
         displayLegend: true,
         legendPosition: 'bottom',
         maintainAspectRatio: false,
@@ -44,7 +44,7 @@ class BarChart extends Component {
         titleFontColor: 'rgb(95, 95, 95)',
         stackedBars: true,
         AxisAtZero: true,
-        datasetArray: []
+        datasetArray: [],
     }
     
 
@@ -121,7 +121,8 @@ class BarChart extends Component {
                   text: this.props.titleText,
                   fontSize: this.props.titleFontSize,
                   defaultProps: this.props.maintainAspectRatio,
-                  responsive: this.props.isResponsive
+                  responsive: this.props.isResponsive,
+                  fontSize: this.props.titleFontSize,
                 },
                 legend: {
                   display: this.props.displayLegend,

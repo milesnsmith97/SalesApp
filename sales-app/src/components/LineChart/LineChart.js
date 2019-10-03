@@ -17,7 +17,7 @@
         static defaultProps = {
             displayTitle: true,
             titleText: ['Wholesale Filter View',],
-            titleFontSize: 25,
+            titleFontSize: 17,
             titleFontColor: 'rgb(95, 95, 95)',
             displayLegend: true,
             legendPosition: 'bottom',
@@ -96,7 +96,7 @@
                             text: this.props.titleText,
                             fontSize: this.props.titleFontSize,
                             responsive: true,
-                            defaultProps: this.props.maintainAspectRatio
+                            defaultProps: this.props.maintainAspectRatio,
                         },
                         legend: {
                             display: this.props.displayLegend,
