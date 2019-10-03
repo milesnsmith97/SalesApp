@@ -20,9 +20,8 @@ const useStyles = makeStyles(theme => ({
     margin: '5px',
   },
   textField: {
-    marginLeft: theme.spacing(5),
-    marginRight: theme.spacing(5),
-    width: 200,
+    margin: theme.spacing(1),
+    width: 150,
   },
 }));
 
@@ -34,7 +33,7 @@ const DatePickers = props => {
     DateClasses = 'date-select open';
   }
   return (
-    // <div className={DateClasses}>
+    <div className={DateClasses}>
     <form className={classes.container} noValidate>
     <div className={classes.DateFrom}>
       <TextField
@@ -61,7 +60,7 @@ const DatePickers = props => {
       />
       </div>
     </form>
-    // </div>
+   </div>
   );
 };
 

@@ -11,6 +11,8 @@ import SelectRange from './components/DateSelect/SelectRange';
 import ButtonAppBar from './components/NavBar/NavBar';
 import Loading from './components/Loading';
 
+import Logo from './components/img/MorrisonsLogo.png';
+
 
 
 // import Backdrop from './components/Backdrop/Backdrop';
@@ -53,9 +55,9 @@ class App extends Component {
   };
 
   selectOtherClickHandler = () => {
-    this.setState((prevState) => {
-      return { dateSelectOpen: !prevState.dateSelectOpen };
-    });
+    // this.setState((prevState) => {
+    //   return { dateSelectOpen: !prevState.dateSelectOpen };
+    // });
     console.log('option selected')
   };
 
@@ -142,8 +144,11 @@ class App extends Component {
     if (!isLoaded) {              //If not loaded display loading div
       return (
       <div style={{ height: '100%' }} className="Loading-Container">
-        <div className="Loading-Circle"><Loading/>
-
+        <div className="Loading-Circle">
+          <div className="loading-Logo">
+              <img src={Logo} className="App-logo" alt="logo" />
+              <Loading/>
+          </div>
         </div>
       </div>)
     } else {
@@ -159,44 +164,43 @@ class App extends Component {
           {/* <Toolbar drawerClickHandler={this.drawerToggleClickHandler} /> */}
           {/* <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop} */}
+
           <div>
             <ButtonAppBar />
+            
           </div>
+
           <main style={{ marginTop: '64px' }}>
         
-          </main>
+          {/* </main> */}
+
             <div className="Chart-Style">
-          
-
-          
-            <BarChart chartData={this.state.chartData} />
-              {/* <OnClick OnClick={this.state.OnClick}                  /> */}
-
-              
+                <BarChart chartData={this.state.chartData} />
             </div>
+
             <div className="Filter-Nav">
               <div className="Button-Container">
                   <div className="dropdown">
-                    <SelectRange OtherClickHandler={this.selectOtherClickHandler} />
-                    {/* <DateSelect show={this.state.dateSelectOpen} /> */}
+
+                      <SelectRange click={this.selectOtherClickHandler} />
+                      {/* <DateSelect show={this.state.dateSelectOpen} /> */}
                   </div>
-              {/* </div> */}
-              <br></br>
-            {/* <div className="Filter-Nav-two"> */}
-              <div className="Date-Container">
-                  <DateSelect show={this.state.dateSelectOpen} />
+
+                  <div>
+                    <DateSelect show={this.state.dateSelectOpen} />
+                  </div>
               </div>
             </div>
-              
-              
-            </div>
+
+            
             <div className="Line-Chart-Style">
                   <LineChart chartData={this.state.chartData} />
-              </div>
+            </div>
             
             <br></br>
             
           
+          </main>
         </div>
       );
       
