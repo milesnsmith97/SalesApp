@@ -50,6 +50,10 @@
                         ],
             stackedBars: true,
             AxisAtZero: true,
+            datasetOne: [20, 25, 32, 33, 35, 40, 41, 42, 44, 40, 35, 37, 40, 39, 36, 35, 34, 30,28, 25, 22, 20, 15, 11],
+            datasetTwo: [2, 3, 6, 5, 8, 6, 7, 10, 12, 12, 12, 14, 16, 16, 16, 17, 18, 18,18, 20, 18, 13, 10, 10],
+            datasetThree: [8, 9, 4, 8, 8, 10,14, 18, 20, 22, 25, 29, 35, 39, 45, 54, 63, 66,69, 70, 73, 74, 79, 84],
+            datasetFour: [30, 37, 42, 46, 50, 60, 66, 67, 70, 72, 73, 75, 80, 81, 84, 89, 90, 91,92, 94, 95, 95, 96, 100],
         }
 
         render() {
@@ -61,21 +65,21 @@
                         datasets: [
                             {
                                 label:"Pending",
-                                data: [20, 25, 32, 33, 35, 40, 41, 42, 44, 40, 35, 37, 40, 39, 36, 35, 34, 30,28, 25, 22, 20, 15, 11],
+                                data: this.props.datasetOne,
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [1],
                                 borderWidth: 2,
                             },
                             {
                                 label:"Error",
-                                data: [2, 3, 6, 5, 8, 6, 7, 10, 12, 12, 12, 14, 16, 16, 16, 17, 18, 18,18, 20, 18, 13, 10, 10],
+                                data: this.props.datasetTwo,
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [2],
                                 borderWidth: 2,
                             },
                             {
                                 label:"Completed",
-                                data: [8, 9, 4, 8, 8, 10,14, 18, 20, 22, 25, 29, 35, 39, 45, 54, 63, 66,69, 70, 73, 74, 79, 84],
+                                data: this.props.datasetThree,
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [3],
                                 borderWidth: 2,
@@ -83,7 +87,7 @@
                             },
                             {    
                                 label:"Total",
-                                data: [30, 37, 42, 46, 50, 60, 66, 67, 70, 72, 73, 75, 80, 81, 84, 89, 90, 91,92, 94, 95, 95, 96, 100],
+                                data: this.props.datasetFour,
                                 backgroundColor: this.props.colorFill,
                                 borderColor: this.props.colors [0],
                                 borderWidth: 2,
