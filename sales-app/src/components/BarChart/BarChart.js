@@ -22,7 +22,7 @@ class BarChart extends Component {
         titleText: 'Transactions',
         titleFontSize: 17,
         displayLegend: true,
-        legendPosition: 'bottom',
+        legendPosition: 'right',
         maintainAspectRatio: false,
         labels: [
                 'Pending', 
