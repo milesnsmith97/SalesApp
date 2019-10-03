@@ -28,6 +28,8 @@ import Logo from './components/img/MorrisonsLogo.png';
 
 const API_EVERYTHING = 'https://cors-anywhere.herokuapp.com/https://qmyxgbg5bl.execute-api.eu-west-2.amazonaws.com/dev/getlatest'
 
+// const API_EVERYTHING = 'https://demo3341101.mockable.io/'  // this is mock data with more channels
+
 // const API_ONLINE = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_online_cpe_process'
 
 // const API_WHOLESALE = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_wholesale_cpe_process'

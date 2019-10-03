@@ -32,9 +32,12 @@ class BarChart extends Component {
               ],
         isResponsive: true,
         colors: [
-                'rgba(45, 145, 245, 0.5)',  // Blue
-                'rgba(231, 76, 60, 0.5)',  // Wholesale
-                'rgba(248, 189, 0, 0.5)'    // FOL Deals
+                'rgba(45, 145, 245, 0.5)',  
+                'rgba(235, 42, 194, 0.5)', 
+                'rgba(255, 195, 0, 0.5)',   
+                'rgba(0, 0, 204, 0.5)',   
+                'rgba(179, 0, 0, 0.5)',   
+                'rgba(255, 153, 0, 0.5)'
               ],
         LegendTitles: [
                       'Online', 
@@ -62,23 +65,20 @@ class BarChart extends Component {
       for (var i=0; i<resultKeys.length; i++) {
         
         var scenarioName = resultKeys[i]
-        // var scenString = JSON.stringify(scenarioName)
-        // var scenString = JSON.stringify(scenarioName)
         var lab = scenarioName.replace(/_|cpe|sales|process/g, "" )
         lab =lab.replace(/fold/g, "FOL D")
         lab = lab.replace(lab[0], lab[0].toUpperCase())
-        // var lab = scenarioName.replace(/"cpe"/g, "" )
         var scenarioObject = result[scenarioName]
         delete scenarioObject.created_dt
         var scenarioObjectKey = Object.keys(scenarioObject)
-        // newObj[scenarioName] = scenarioObject.pending
-        // newObj[scenarioName] = scenarioObject.pending
+
         var orderArray = ["pending", "error", "completed", "total"]
         
         
         var newDataset = {
           label: lab,
             data: [],
+            labels: "sum",
             backgroundColor: this.props.colors[i],
             borderColor: this.props.colors[i],
             borderWidth: 1,
@@ -93,10 +93,6 @@ class BarChart extends Component {
       } 
       datasetArray.push(newDataset)
     
-      // data.datasets.push(dataSetArray[i])
-      // bar111.data.push(dataSetArray[i])
-      // this.state.chartData.data.datasets.push(dataSetArray)
-      // this.state.dataSets.push(newDataset);
       console.log("dataSetArray: "+JSON.stringify("LOOKHERE: "+this.props.dataSetArray))
       
 
@@ -109,10 +105,6 @@ class BarChart extends Component {
                 labels: this.props.labels,
                 datasets: this.props.datasetArray
                 
-
-
-        
-
               }}
     
               options={{
