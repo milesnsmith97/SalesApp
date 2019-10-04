@@ -51,8 +51,10 @@ class BarChart extends Component {
         yscaleLabelText: 'Cost (£)',
         xscaleLabelText: 'Status',
         displayScaleLabel: true,
-        scaleLabelFontSize: 20,
-    }
+        yscaleLabelFontSize: 20,
+        tickFontSize: 17,
+        legendFontSize: 15,
+      }
     
 
     
@@ -136,6 +138,7 @@ class BarChart extends Component {
                   position: this.props.legendPosition,
                   labels: {
                     fontColor:this.props.titleFontColor,
+                    fontSize: this.props.legendFontSize,
                   }
                 },
 
@@ -144,22 +147,22 @@ class BarChart extends Component {
                     stacked: this.props.stackedBars,
                     ticks: {
                       beginAtZero: this.AxisAtZero,
+                      fontSize: this.props.tickFontSize,
                     },
                     scaleLabel: {
                       display: this.props.displayScaleLabel,
                       labelString: this.props.yscaleLabelText,
-                      fontSize: this.props.scaleLabelFontSize,
+                      fontSize: this.props.yscaleLabelFontSize,
                     },
                   }],
                   xAxes: [{
                     stacked: this.props.stackedBars,
                     ticks: {
+                      fontSize: this.props.tickFontSize,
                       beginAtZero: this.AxisAtZero
                     },
                     scaleLabel:{
-                      display: this.props.displayScaleLabel,
-                      labelString: this.props.xscaleLabelText,
-                      fontsize: this.props.scaleLabelFontSize,
+                      
                     },
                   }],
     
