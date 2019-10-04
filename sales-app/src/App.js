@@ -5,9 +5,6 @@ import axios from 'axios';
 
 import './App.css';
 import BarChart from './components/BarChart/BarChart';
-import LineChart from './components/LineChart/LineChart';
-import DateSelect from './components/DateSelect/DateSelect';
-import SelectRange from './components/DateSelect/SelectRange';
 import ButtonAppBar from './components/NavBar/NavBar';
 import Loading from './components/Loading';
 
@@ -48,38 +45,13 @@ const API_WHOLESALE_ERROR = 'https://cors-anywhere.herokuapp.com/https://g640240
 
 
 class App extends Component {
-  drawerToggleClickHandler = () => {
-    this.setState((prevState) => {
-      return { sideDrawerOpen: !prevState.sideDrawerOpen };
-    });
-  };
-
-  selectOtherClickHandler = () => {
-    // this.setState((prevState) => {
-    //   return { dateSelectOpen: !prevState.dateSelectOpen };
-    // });
-    console.log('option selected')
-  };
-
-  // chartSelectClickHandler = () => {
-  //   this.setState((prevState) => {
-  //     return { lineChartOneOpen: !prevState.lineChartOneOpen };
-  //   })
-  // }
-
-  backdropClickHandler = () => {
-    this.setState({ sideDrawerOpen: false , drillDownOpen:false});
-  };
-
+  
   constructor(props) {
     super(props);
   
     this.state = {
       isLoaded: false,
       chartData: [],
-      drillDownData: [],
-      sideDrawerOpen: false,
-      dateSelectOpen: false,
       chartOptions:{
         title: {
           display: this.props.displayTitle,
@@ -105,23 +77,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getChartData();
-    // this.getDrillDownData();
   }
-
-  // async getDrillDownData() {
-  //   axios.all([axios.get(API_FOLDDEALS_ERROR),
-  //   axios.get(API_ONLINE_ERROR),
-  //   axios.get(API_WHOLESALE_ERROR)])
-  //     .then(await axios.spread((responseone, responsetwo, responsethree ) => {
-  //       this.setState({
-  //         isLoaded: true,
-  //         drillDownData: Object.assign({}, { responseone, responsetwo , responsethree,  })
-         
-  //       })
-  //       console.log({responseone, responsetwo, responsethree})
-  //     }
-  //     ))
-  // }
 
   async getChartData(){
     axios.all([axios.get(API_EVERYTHING)])
@@ -152,52 +108,36 @@ class App extends Component {
         </div>
       </div>)
     } else {
-
-      // let backdrop;
-
-      // if (this.state.sideDrawerOpen) {
-      //   backdrop = <Backdrop click={this.backdropClickHandler} />
-      // }
       return (
         
         <div style={{ height: '100%' }} className="Main-App">
-          {/* <Toolbar drawerClickHandler={this.drawerToggleClickHandler} /> */}
-          {/* <SideDrawer show={this.state.sideDrawerOpen} />
-          {backdrop} */}
-
           <div>
-            <ButtonAppBar />
-            
+              <ButtonAppBar />
           </div>
 
           <main style={{ marginTop: '64px' }}>
-        
-          {/* </main> */}
 
             <div className="Chart-Style">
                 <BarChart chartData={this.state.chartData} />
             </div>
 
-            <div className="Filter-Nav">
+            {/* <div className="Filter-Nav">
               <div className="Button-Container">
                   <div className="dropdown">
-
                       <SelectRange click={this.selectOtherClickHandler} />
-                      {/* <DateSelect show={this.state.dateSelectOpen} /> */}
                   </div>
 
                   <div>
                     <DateSelect show={this.state.dateSelectOpen} />
                   </div>
               </div>
-            </div>
+            </div> */}
 
-            
-            <div className="Line-Chart-Style">
+            {/* <div className="Line-Chart-Style">
                   <LineChart chartData={this.state.chartData} />
-            </div>
+            </div> */}
             
-            <br></br>
+            {/* <br></br> */}
             
           
           </main>
