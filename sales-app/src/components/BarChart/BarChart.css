@@ -8,9 +8,3 @@
     position: relative;
     display: flex;
 }
-
-.canvas {
-    height: 100%;
-    display: flex;
-    padding: 100px;
-}

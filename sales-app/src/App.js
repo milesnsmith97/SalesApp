@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
 import axios from 'axios';
+// import ReactDOM from 'react-dom';
 
 
 import './App.css';
@@ -9,17 +9,6 @@ import ButtonAppBar from './components/NavBar/NavBar';
 import Loading from './components/Loading';
 
 import Logo from './components/img/MorrisonsLogo.png';
-
-
-
-// import Backdrop from './components/Backdrop/Backdrop';
-// import Toolbar from './components/Toolbar/Toolbar';
-// import SideDrawer from './components/SideDrawer/SideDrawer';
-// import ButtonAppBar from './components/ButtonAppBar/ButtonAppBar'
-// import ChartSelect from './components/ChartSelect/ChartSelect';
-// import PolarChart from './components/PolarChart/PolarChart';
-// import Chart from './components/Chart';
-
 
 ///////////////// API links:///////////////////////////////
 
@@ -32,16 +21,6 @@ const API_EVERYTHING = 'https://cors-anywhere.herokuapp.com/https://qmyxgbg5bl.e
 // const API_WHOLESALE = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_wholesale_cpe_process'
 
 // const API_FOLDEALS = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_foldeals_cpe_process'
-
-//////////////// DRILLDOWN Links //////////////////////////
-
-const API_FOLDDEALS_ERROR = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/query/drilldown_sales_foldeals_cpe_process_error'  
-
-const API_ONLINE_ERROR = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/query/drilldown_sales_wholesale_cpe_process_error'
-
-const API_WHOLESALE_ERROR = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/query/drilldown_sales_online_cpe_process_error'
-
-///////////////////////////////////////////////////////////
 
 
 class App extends Component {
@@ -71,14 +50,11 @@ class App extends Component {
         };
   }
 
-  
-
-                      /// Calls API's and maps for stacked bar chart ///
-
   componentDidMount() {
     this.getChartData();
   }
-
+  
+  /// Calls API's and maps for stacked bar chart ///
   async getChartData(){
     axios.all([axios.get(API_EVERYTHING)])
       .then(await axios.spread((everything) => {
@@ -115,31 +91,11 @@ class App extends Component {
               <ButtonAppBar />
           </div>
 
-          <main style={{ marginTop: '64px' }}>
+          <main style={{ marginTop: '50px' }}>
 
             <div className="Chart-Style">
                 <BarChart chartData={this.state.chartData} />
-            </div>
-
-            {/* <div className="Filter-Nav">
-              <div className="Button-Container">
-                  <div className="dropdown">
-                      <SelectRange click={this.selectOtherClickHandler} />
-                  </div>
-
-                  <div>
-                    <DateSelect show={this.state.dateSelectOpen} />
-                  </div>
-              </div>
-            </div> */}
-
-            {/* <div className="Line-Chart-Style">
-                  <LineChart chartData={this.state.chartData} />
-            </div> */}
-            
-            {/* <br></br> */}
-            
-          
+            </div>            
           </main>
         </div>
       );

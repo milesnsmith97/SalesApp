@@ -20,7 +20,7 @@ class BarChart extends Component {
     static defaultProps = {
         displayTitle: true,
         titleText: 'Transactions',
-        titleFontSize: 17,
+        titleFontSize: 25,
         displayLegend: true,
         legendPosition: 'right',
         maintainAspectRatio: false,
@@ -39,15 +39,19 @@ class BarChart extends Component {
                 'rgba(179, 0, 0, 0.5)',   
                 'rgba(255, 153, 0, 0.5)'
               ],
-        LegendTitles: [
-                      'Online', 
-                      'Wholesale', 
-                      'FOL Deals'
-                    ],
+        // LegendTitles: [
+        //               'Online', 
+        //               'Wholesale', 
+        //               'FOL Deals'
+        //             ],
         titleFontColor: 'rgb(95, 95, 95)',
         stackedBars: true,
         AxisAtZero: true,
         datasetArray: [],
+        yscaleLabelText: 'Cost (£)',
+        xscaleLabelText: 'Status',
+        displayScaleLabel: true,
+        scaleLabelFontSize: 20,
     }
     
 
@@ -139,15 +143,25 @@ class BarChart extends Component {
                   yAxes: [{
                     stacked: this.props.stackedBars,
                     ticks: {
-                      beginAtZero: this.AxisAtZero
-                    }
+                      beginAtZero: this.AxisAtZero,
+                    },
+                    scaleLabel: {
+                      display: this.props.displayScaleLabel,
+                      labelString: this.props.yscaleLabelText,
+                      fontSize: this.props.scaleLabelFontSize,
+                    },
                   }],
                   xAxes: [{
                     stacked: this.props.stackedBars,
                     ticks: {
                       beginAtZero: this.AxisAtZero
-                    }
-                  }]
+                    },
+                    scaleLabel:{
+                      display: this.props.displayScaleLabel,
+                      labelString: this.props.xscaleLabelText,
+                      fontsize: this.props.scaleLabelFontSize,
+                    },
+                  }],
     
                 },
                 
@@ -160,8 +174,6 @@ class BarChart extends Component {
               
             />
 
-            <br></br>
-            {/* <hr></hr> */}
           </div>
 
         )

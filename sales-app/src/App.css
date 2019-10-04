@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-color: rgb(242,242,242);
+}
+
 .Main-App {
   background-color: rgb(188, 206, 214,0.15);
 }
@@ -59,23 +63,24 @@
 }
 
 .Chart-Style {
-  padding: 20px;
-  margin: 70px;
-  margin-bottom: 0;
+  padding: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  top: 50%;
+  left: 50%;
+  margin: 2rem;
   height: 100%;
-  /* padding: 30px 70px 30px 30px; */
-  /* display: flex; */
 }
 
-.Line-Chart-Style {
+/* .Line-Chart-Style {
   padding: 30px 70px 30px 30px;
   margin: 70px;
   margin-top: 0;
   margin-bottom: 0;
-  height: 100%;
+  height: 100%; */
   /* padding: 20px; */
   /* display: flex; */
-}
+/* } */
 
 .Button-Container {
   text-align: center;
@@ -88,27 +93,6 @@
   display: inline-flex;
   /* padding: 5px 5px 5px 5px; */
 }
-
-
-
-/* .Date-Container {
-  text-align: center;
-  font-size: calc(7px + 2vmin);
-  color: #EFEFEF;
-  background-color: #ffffff;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2);
-  border: solid black 0.15px;
-  border-radius: 4px;
-  display: inline-flex;
-  padding: 5px 5px 5px 5px;
-} */
-
-/* .Button-Container div {
-  display: inline-flex;
-  background-color: #ffffff;
-  padding: 5px 5px 5px 10px;
-} */
-
 
 
 .Filter-Nav {
