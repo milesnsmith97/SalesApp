@@ -61,7 +61,7 @@ const ButtonAppBar = props => {
             <Typography variant="h6" color="inherit" className={classes.title}>
               Service
             </Typography>
-          <Button color="inherit" className={classes.menuButton}>USER</Button>
+          <Button color="inherit" className={classes.menuButton} href="https://www.mymorri.com/">Log Out</Button>
         </Toolbar>
       </AppBar>
     </div>
