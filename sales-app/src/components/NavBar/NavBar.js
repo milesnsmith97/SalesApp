@@ -31,27 +31,6 @@ const useStyles = makeStyles (theme => ({
   },
 }));
 
-// export default function ButtonAppBar() {
-//   const classes = useStyles();
-
-//   return (
-//     <div className={classes.root}>
-//       <AppBar position='fixed' className={classes.ButtonAppBar} >
-//         <Toolbar>
-//           {/* <DrawerToggleButton click={props.drawerClickHandler} /> */}
-//           {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-//             <MenuIcon />
-//           </IconButton> */}
-//           <Typography variant="h6" className={classes.title}>
-//             Service
-//           </Typography>
-//           <Button color="inherit">USER</Button>
-//         </Toolbar>
-//       </AppBar>
-//     </div>
-//   );
-// }
-
 const ButtonAppBar = props => {
   const classes = useStyles();
   return (

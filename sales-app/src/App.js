@@ -7,6 +7,7 @@ import './App.css';
 import BarChart from './components/BarChart/BarChart';
 import ButtonAppBar from './components/NavBar/NavBar';
 import Loading from './components/Loading';
+// import SignInSide from './components/SignIn/SignIn';
 
 import Logo from './components/img/MorrisonsLogo.png';
 
@@ -92,7 +93,7 @@ class App extends Component {
           </div>
 
           <main style={{ marginTop: '50px' }}>
-
+{/* <SignInSide /> */}
             <div className="Chart-Style">
                 <BarChart chartData={this.state.chartData} />
             </div>            

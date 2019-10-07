@@ -103,12 +103,8 @@ class BarChart extends Component {
       datasetArray.push(newDataset)
     
 
-  }
-    
-      // console.log("dataSetArray: "+JSON.stringify("LOOKHERE: "+this.props.dataSetArray))
-      
+  }   
 
-  // }
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
           <div className="chart" id="chart" height="100%">
@@ -189,7 +185,6 @@ class BarChart extends Component {
         )
       }
     }
-  
-  
+
     
     export default BarChart;
