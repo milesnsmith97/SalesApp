@@ -38,9 +38,9 @@ const ButtonAppBar = props => {
       <AppBar position='fixed' className={classes.ButtonAppBar}>
         <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.title}>
-              Service
+              Operations Dashboard
             </Typography>
-          <Button color="inherit" className={classes.menuButton} href="https://www.mymorri.com/">Log Out</Button>
+          {/* <Button color="inherit" className={classes.menuButton} href="https://www.mymorri.com/">Log Out</Button> */}
         </Toolbar>
       </AppBar>
     </div>

@@ -48,7 +48,7 @@ class BarChart extends Component {
         stackedBars: true,
         AxisAtZero: true,
         datasetArray: [],
-        yscaleLabelText: 'Cost (£)',
+        yscaleLabelText: '(£)',
         xscaleLabelText: 'Status',
         displayScaleLabel: true,
         yscaleLabelFontSize: 20,
@@ -149,14 +149,16 @@ class BarChart extends Component {
                   yAxes: [{
                     stacked: this.props.stackedBars,
                     ticks: {
+                      callback: function(value) {
+                        return '£' + value;},
                       beginAtZero: this.AxisAtZero,
                       fontSize: this.props.tickFontSize,
                     },
-                    scaleLabel: {
-                      display: this.props.displayScaleLabel,
-                      labelString: this.props.yscaleLabelText,
-                      fontSize: this.props.yscaleLabelFontSize,
-                    },
+                    // scaleLabel: {
+                    //   display: this.props.displayScaleLabel,
+                    //   labelString: this.props.yscaleLabelText,
+                    //   fontSize: this.props.yscaleLabelFontSize,
+                    // },
                   }],
                   xAxes: [{
                     stacked: this.props.stackedBars,
@@ -170,11 +172,6 @@ class BarChart extends Component {
                   }],
     
                 },
-                
-
-
-    
-
                 
               }}
               
