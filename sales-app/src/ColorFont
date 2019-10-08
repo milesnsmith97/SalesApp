@@ -1,3 +1,5 @@
+Colors/Fonts
+
 Brand Colors
     Primary: rgb(0,78,55) dark green
     Secondary: rgb(252,188,0) yellow/orange
@@ -8,5 +10,19 @@ Page background
 
 Font Colors
     Active Links/ emphasise: rgb(79,137,63) light green
+
+
+
+
+Dependancies:
+
+    npx create-react-app my-app
+    npm install chart.js --save
+    npm install --save react-chartjs-2 chart.js
+    npm install axios
+    npm install @material-ui/core
+    M-UI Icons ( npm install @material-ui/icons ) --not currently installed
+    npm install --save react-router
+
 
     Test v1 branch

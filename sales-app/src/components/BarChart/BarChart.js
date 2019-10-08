@@ -24,13 +24,16 @@ class BarChart extends Component {
         displayLegend: true,
         legendPosition: 'right',
         maintainAspectRatio: false,
+
         labels: [
                 'Pending', 
                 'Error', 
                 'Completed', 
                 'Total'
               ],
+
         isResponsive: true,
+
         colors: [
                 'rgba(45, 145, 245, 0.5)',  
                 'rgba(235, 42, 194, 0.5)', 
@@ -39,11 +42,7 @@ class BarChart extends Component {
                 'rgba(179, 0, 0, 0.5)',   
                 'rgba(255, 153, 0, 0.5)'
               ],
-        // LegendTitles: [
-        //               'Online', 
-        //               'Wholesale', 
-        //               'FOL Deals'
-        //             ],
+
         titleFontColor: 'rgb(95, 95, 95)',
         stackedBars: true,
         AxisAtZero: true,
@@ -63,10 +62,8 @@ class BarChart extends Component {
       var result = this.state.chartData.everything.data
       var resultKeys = Object.keys(result)
       var datasetArray =this.props.datasetArray
-      String.prototype.capitalize = function() {
-        return this.charAt(0).toUpperCase() + this.slice(1);
-    }
-      console.log("resutkeyslength"+resultKeys.length)
+  
+      // console.log("resutkeyslength"+resultKeys.length)
       
       for (var i=0; i<resultKeys.length; i++) {
         
@@ -76,7 +73,6 @@ class BarChart extends Component {
         lab =lab.replace(/fold/g, "FOL D")
         lab = lab.replace(lab[0], lab[0].toUpperCase())
         var scenarioObject = result[scenarioName]
-        var scenarioObjectKey = Object.keys(scenarioObject)
 
         var orderArray = ['pending', "error", "completed", "total"]
         
@@ -88,7 +84,7 @@ class BarChart extends Component {
           borderColor: this.props.colors[i],
           borderWidth: 1,
         }     
-        console.log(JSON.stringify(newDataset))
+        // console.log(JSON.stringify(newDataset))
           
        for(var j = 0; j<orderArray.length; j++)  {
 
@@ -107,23 +103,26 @@ class BarChart extends Component {
 
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
+
           <div className="chart" id="chart" height="100%">
+
             <Bar id="barChart"
+            
               data={{
                 labels: this.props.labels,
-                datasets: this.props.datasetArray
-                
+                datasets: this.props.datasetArray 
               }}
     
               options={{
+
                 title: {
                   display: this.props.displayTitle,
                   text: this.props.titleText,
                   fontSize: this.props.titleFontSize,
                   defaultProps: this.props.maintainAspectRatio,
                   responsive: this.props.isResponsive,
-                  fontSize: this.props.titleFontSize,
                 },
+
                 tooltips: {
                   enabled: true,
                   callbacks: {
@@ -133,9 +132,8 @@ class BarChart extends Component {
                       return label + ':' + val  + ", sum: £"+ Math.floor(Math.random() * 300) + 1+ ', (' + (100 * val / 130).toFixed(0) + '%),'
                     }
                   }
-            
-                }
-              ,
+                },
+
                 legend: {
                   display: this.props.displayLegend,
                   position: this.props.legendPosition,
@@ -146,28 +144,22 @@ class BarChart extends Component {
                 },
 
                 scales: {
+
                   yAxes: [{
                     stacked: this.props.stackedBars,
                     ticks: {
-                      callback: function(value) {
-                        return '£' + value;},
+                      // callback: function(value) {
+                      //   return '£' + value;},
                       beginAtZero: this.AxisAtZero,
                       fontSize: this.props.tickFontSize,
                     },
-                    // scaleLabel: {
-                    //   display: this.props.displayScaleLabel,
-                    //   labelString: this.props.yscaleLabelText,
-                    //   fontSize: this.props.yscaleLabelFontSize,
-                    // },
                   }],
+
                   xAxes: [{
                     stacked: this.props.stackedBars,
                     ticks: {
                       fontSize: this.props.tickFontSize,
                       beginAtZero: this.AxisAtZero
-                    },
-                    scaleLabel:{
-                      
                     },
                   }],
     

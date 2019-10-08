@@ -23,6 +23,8 @@ const API_EVERYTHING = 'https://cors-anywhere.herokuapp.com/https://qmyxgbg5bl.e
 
 // const API_FOLDEALS = 'https://cors-anywhere.herokuapp.com/https://g640240ci7.execute-api.eu-west-2.amazonaws.com/dev/stats/sales_foldeals_cpe_process'
 
+////////////////////////////////////////////////////////////
+
 
 class App extends Component {
   
@@ -32,22 +34,6 @@ class App extends Component {
     this.state = {
       isLoaded: false,
       chartData: [],
-      chartOptions:{
-        title: {
-          display: this.props.displayTitle,
-          text: this.props.titleText,
-          fontSize: this.props.titleFontSize,
-          defaultProps: this.props.maintainAspectRatio,
-          isResponsive: this.props.isResponsive
-        },
-        legend: {
-          display: this.props.displayLegend,
-          position: this.props.legendPosition,
-          labels: {
-            fontColor:this.props.titleFontColor,
-          }
-        }
-        }
         };
   }
 
@@ -63,7 +49,7 @@ class App extends Component {
           isLoaded: true,
           chartData: Object.assign({}, { everything })
         })
-        console.log("everything: "+ everything)
+        // console.log("everything: "+ everything)
       }))
   }
 
@@ -76,34 +62,45 @@ class App extends Component {
     var { isLoaded } = this.state; //access properties within the state
     if (!isLoaded) {              //If not loaded display loading div
       return (
-      <div style={{ height: '100%' }} className="Loading-Container">
-        <div className="Loading-Circle">
-          <div className="loading-Logo">
-              <img src={Logo} className="App-logo" alt="logo" />
-              <Loading/>
+        <div style={{ height: '100%' }} className="Loading-Container">
+
+          <div className="Loading-Circle">
+
+            <div className="loading-Logo">
+                <img src={Logo} className="App-logo" alt="logo" />
+
+                  <Loading/>
+            </div>
+
           </div>
+
         </div>
-      </div>)
-    } else {
+        )
+      } 
+    else {
       return (
         
         <div style={{ height: '100%' }} className="Main-App">
+
           <div>
               <ButtonAppBar />
           </div>
 
           <main style={{ marginTop: '50px' }}>
-{/* <SignInSide /> */}
+
             <div className="Chart-Style">
                 <BarChart chartData={this.state.chartData} />
-            </div>            
+            </div> 
+
           </main>
+
         </div>
       );
       
     }
     
   }
+
 }
 
 export default App;
