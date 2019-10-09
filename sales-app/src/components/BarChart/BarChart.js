@@ -209,7 +209,6 @@ class BarChart extends Component {
                     fontSize: this.props.legendFontSize,
                   },
                   onClick:newLegendClickHandler,
-                  // onClick:defaultLegendClickHandler,
                 },
 
                 scales: {
