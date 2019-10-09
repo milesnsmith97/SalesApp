@@ -6,9 +6,9 @@ body {
   background-color: rgb(242,242,242);
 }
 
-.Main-App {
+/* .Main-App {
   background-color: rgb(188, 206, 214,0.15);
-}
+} */
 
 .Loading-Container {
   text-align: center;
@@ -65,10 +65,12 @@ body {
   padding: 5rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  top: 50%;
-  left: 50%;
   margin: 2rem;
+  position: relative;
   height: 100%;
+  /* top: 50%;
+  left: 50%;
+  margin: auto; */
 }
 
 /* .Line-Chart-Style {

@@ -80,8 +80,8 @@ class App extends Component {
     else {
       return (
         
-        <div style={{ height: '100%' }} className="Main-App">
-
+        // <div style={{ height: '100%' }} className="Main-App">
+        <div>
           <div>
               <ButtonAppBar />
           </div>
@@ -89,6 +89,7 @@ class App extends Component {
           <main style={{ marginTop: '50px' }}>
 
             <div className="Chart-Style">
+            {/* <div> */}
                 <BarChart chartData={this.state.chartData} />
             </div> 
 

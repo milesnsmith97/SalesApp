@@ -58,7 +58,8 @@ class BarChart extends Component {
 
     
     render() {
-      
+
+//// Input Chart Data Dynamic ////
       var result = this.state.chartData.everything.data
       var resultKeys = Object.keys(result)
       var datasetArray =this.props.datasetArray
@@ -99,7 +100,8 @@ class BarChart extends Component {
       datasetArray.push(newDataset)
     }
 
-//// onClick 1 ////
+
+//// Legend onClick 1 ////
     // function newLegendClickHandler(e, legendItem) {
     //   var index = legendItem.datasetIndex;
     //   var ci = this.chart;
@@ -123,7 +125,7 @@ class BarChart extends Component {
     // };
 
 
-//// onClick 2 ////
+//// Legend onClick 2 ////
     function newLegendClickHandler(e, legendItem) {
       var index = legendItem.datasetIndex;
       var ci = this.chart;
@@ -131,7 +133,6 @@ class BarChart extends Component {
       var anyOthersAlreadyHidden = false;
       var allOthersHidden = true;
     
-      // figure out the current state of the labels
       ci.data.datasets.forEach(function(e, i) {
         var meta = ci.getDatasetMeta(i);
     
@@ -144,23 +145,17 @@ class BarChart extends Component {
         }
       });
     
-      // if the label we clicked is already hidden 
-      // then we now want to unhide (with any others already unhidden)
       if (alreadyHidden) {
         ci.getDatasetMeta(index).hidden = null;
       } else { 
-        // otherwise, lets figure out how to toggle visibility based upon the current state
+
         ci.data.datasets.forEach(function(e, i) {
           var meta = ci.getDatasetMeta(i);
     
           if (i !== index) {
-            // handles logic when we click on visible hidden label and there is currently at least
-            // one other label that is visible and at least one other label already hidden
-            // (we want to keep those already hidden still hidden)
             if (anyOthersAlreadyHidden && !allOthersHidden) {
               meta.hidden = true;
             } else {
-              // toggle visibility
               meta.hidden = meta.hidden === null ? !meta.hidden : null;
             }
           } else {
@@ -176,7 +171,7 @@ class BarChart extends Component {
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
 
-          <div className="chart" id="chart" height="100%">
+          <div className="chart" id="chart">
 
             <Bar id="barChart"
             
