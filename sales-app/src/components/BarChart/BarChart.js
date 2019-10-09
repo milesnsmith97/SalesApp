@@ -127,22 +127,46 @@ class BarChart extends Component {
   // }
     var newLegendClickHandler = function (e, legendItem) {
     var index = legendItem.datasetIndex;
-
-    if (index >= 0) 
+    
+    // legendItem.onclick={index}
+    if (index == 0) 
+    // if (legendItem.onClick)
     //     // Do the original logic
     //     defaultLegendClickHandler(e, legendItem);
     // } else 
     {
-        let ci = this.chart;
-        [
-            ci.getDatasetMeta(0),
-            ci.getDatasetMeta(1)
-        ].forEach(function(meta) {
-            meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
-        });
+      let ci = this.chart;
+      [
+        ci.getDatasetMeta(2),
+        ci.getDatasetMeta(1)
+      ].forEach(function(meta) {
+   
+        meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+      });
         ci.update();
     }
-};
+    else if (index == 1){
+      let ci = this.chart;
+      [
+          ci.getDatasetMeta(0),
+          ci.getDatasetMeta(2)
+      ].forEach(function(meta) {
+          meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+      });
+      ci.update();
+    }
+    else if (index == 2){
+      let ci = this.chart;
+      [
+          ci.getDatasetMeta(0),
+          ci.getDatasetMeta(1)
+      ].forEach(function(meta) {
+          meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+      });
+      ci.update();
+    }
+
+    };
 
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
