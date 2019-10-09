@@ -99,74 +99,79 @@ class BarChart extends Component {
       datasetArray.push(newDataset)
     }
 
-  //   function(e, legendItem) {
-  //     var index = legendItem.datasetIndex;
-  //     var ci = this.chart;
-  //     var meta = ci.getDatasetMeta(index);
-  
-  //     // See controller.isDatasetVisible comment
-  //     meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
-  
-  //     // We hid a dataset ... rerender the chart
-  //     ci.update();
-  // }
-
-
-
-    // var defaultLegendClickHandler = Chart.defaults.global.legend.onClick;
-  //   var defaultLegendClickHandler = function(e, legendItem) {
-  //     var index = legendItem.datasetIndex;
-  //     var ci = this.chart;
-  //     var meta = ci.getDatasetMeta(index);
-  
-  //     // See controller.isDatasetVisible comment
-  //     meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
-  
-  //     // We hid a dataset ... rerender the chart
-  //     ci.update();
-  // }
-    var newLegendClickHandler = function (e, legendItem) {
-    var index = legendItem.datasetIndex;
+//// onClick 1 ////
+    // function newLegendClickHandler(e, legendItem) {
+    //   var index = legendItem.datasetIndex;
+    //   var ci = this.chart;
+    //   var alreadyHidden = (ci.getDatasetMeta(index).hidden === null) ? false : ci.getDatasetMeta(index).hidden;
     
-    // legendItem.onclick={index}
-    if (index == 0) 
-    // if (legendItem.onClick)
-    //     // Do the original logic
-    //     defaultLegendClickHandler(e, legendItem);
-    // } else 
-    {
-      let ci = this.chart;
-      [
-        ci.getDatasetMeta(2),
-        ci.getDatasetMeta(1)
-      ].forEach(function(meta) {
-   
-        meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+    //   ci.data.datasets.forEach(function(e, i) {
+    //     var meta = ci.getDatasetMeta(i);
+    
+    //     if (i !== index) {
+    //       if (!alreadyHidden) {
+    //         meta.hidden = meta.hidden === null ? !meta.hidden : null;
+    //       } else if (meta.hidden === null) {
+    //         meta.hidden = true;
+    //       }
+    //     } else if (i === index) {
+    //       meta.hidden = null;
+    //     }
+    //   });
+    
+    //   ci.update();
+    // };
+
+
+//// onClick 2 ////
+    function newLegendClickHandler(e, legendItem) {
+      var index = legendItem.datasetIndex;
+      var ci = this.chart;
+      var alreadyHidden = (ci.getDatasetMeta(index).hidden === null) ? false : ci.getDatasetMeta(index).hidden;       
+      var anyOthersAlreadyHidden = false;
+      var allOthersHidden = true;
+    
+      // figure out the current state of the labels
+      ci.data.datasets.forEach(function(e, i) {
+        var meta = ci.getDatasetMeta(i);
+    
+        if (i !== index) {
+          if (meta.hidden) {
+            anyOthersAlreadyHidden = true;
+          } else {
+            allOthersHidden = false;
+          }
+        }
       });
-        ci.update();
-    }
-    else if (index == 1){
-      let ci = this.chart;
-      [
-          ci.getDatasetMeta(0),
-          ci.getDatasetMeta(2)
-      ].forEach(function(meta) {
-          meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
-      });
-      ci.update();
-    }
-    else if (index == 2){
-      let ci = this.chart;
-      [
-          ci.getDatasetMeta(0),
-          ci.getDatasetMeta(1)
-      ].forEach(function(meta) {
-          meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
-      });
+    
+      // if the label we clicked is already hidden 
+      // then we now want to unhide (with any others already unhidden)
+      if (alreadyHidden) {
+        ci.getDatasetMeta(index).hidden = null;
+      } else { 
+        // otherwise, lets figure out how to toggle visibility based upon the current state
+        ci.data.datasets.forEach(function(e, i) {
+          var meta = ci.getDatasetMeta(i);
+    
+          if (i !== index) {
+            // handles logic when we click on visible hidden label and there is currently at least
+            // one other label that is visible and at least one other label already hidden
+            // (we want to keep those already hidden still hidden)
+            if (anyOthersAlreadyHidden && !allOthersHidden) {
+              meta.hidden = true;
+            } else {
+              // toggle visibility
+              meta.hidden = meta.hidden === null ? !meta.hidden : null;
+            }
+          } else {
+            meta.hidden = null;
+          }
+        });
+      }
+    
       ci.update();
     }
 
-    };
 
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
