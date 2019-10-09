@@ -97,9 +97,52 @@ class BarChart extends Component {
         
       } 
       datasetArray.push(newDataset)
-    
+    }
 
-  }   
+  //   function(e, legendItem) {
+  //     var index = legendItem.datasetIndex;
+  //     var ci = this.chart;
+  //     var meta = ci.getDatasetMeta(index);
+  
+  //     // See controller.isDatasetVisible comment
+  //     meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+  
+  //     // We hid a dataset ... rerender the chart
+  //     ci.update();
+  // }
+
+
+
+    // var defaultLegendClickHandler = Chart.defaults.global.legend.onClick;
+  //   var defaultLegendClickHandler = function(e, legendItem) {
+  //     var index = legendItem.datasetIndex;
+  //     var ci = this.chart;
+  //     var meta = ci.getDatasetMeta(index);
+  
+  //     // See controller.isDatasetVisible comment
+  //     meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+  
+  //     // We hid a dataset ... rerender the chart
+  //     ci.update();
+  // }
+    var newLegendClickHandler = function (e, legendItem) {
+    var index = legendItem.datasetIndex;
+
+    if (index >= 0) 
+    //     // Do the original logic
+    //     defaultLegendClickHandler(e, legendItem);
+    // } else 
+    {
+        let ci = this.chart;
+        [
+            ci.getDatasetMeta(0),
+            ci.getDatasetMeta(1)
+        ].forEach(function(meta) {
+            meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+        });
+        ci.update();
+    }
+};
 
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
@@ -140,7 +183,9 @@ class BarChart extends Component {
                   labels: {
                     fontColor:this.props.titleFontColor,
                     fontSize: this.props.legendFontSize,
-                  }
+                  },
+                  onClick:newLegendClickHandler,
+                  // onClick:defaultLegendClickHandler,
                 },
 
                 scales: {
