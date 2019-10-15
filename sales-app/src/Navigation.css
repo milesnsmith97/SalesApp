@@ -1,0 +1,39 @@
+
+@import '~material-icons/iconfont/material-icons.css';
+
+.material-icons {
+
+    font-size: 40px;
+}
+
+
+.router_link {
+
+    text-decoration: none;
+    color:rgb(0,78,55);
+
+}
+.router_link:hover {
+
+    color:rgb(252,188,0);
+    
+
+}
+body {
+    border:1px solid transparent;
+    margin-bottom: none;
+    padding-bottom:none;
+    background-color: rgb(242,242,242)
+    
+
+}
+main {
+    background-color: rgb(242,242,242)
+
+}
+.MuiDialogContent-root {
+    padding:-20px -20px -20px -20px;
+    margin:0px
+}
+
+

@@ -1,3 +1,16 @@
+
+* {
+
+  margin:0;
+  padding:0;
+
+
+
+}
+
+
+
+
 .App {
   text-align: center;
 }
@@ -59,7 +72,8 @@
 }
 
 .Chart-Style {
-  padding: 20px;
+  padding: 5rem;
+  padding-top: 0rem;
   margin: 70px;
   margin-bottom: 0;
   height: 100%;
@@ -133,5 +147,15 @@
     transform: rotate(360deg);
   }
 }
+
+@media(min-width: 600px) {
+  .nav_buttons {
+    padding-top:45px;
+  }
+
+
+}
+
+
 
 

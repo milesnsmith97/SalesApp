@@ -50,63 +50,99 @@ class BarChart extends Component {
         datasetArray: [],
     }
     
+    
 
     
     render() {
-      
+
+      // var chartOptions = {
+
+      //   onClick = (data) => {
+      //     return(
+      //       alert(
+      //         "Drill Down" + data.e 
+      //       )
+      //     )
+
+      //   }
+
+
+
+      // var chartOpts = {
+      //   onClick: function onClick(e,item){
+      //     return 
+      //   }
+      // }
       var result = this.state.chartData.everything.data
       var resultKeys = Object.keys(result)
       var datasetArray =this.props.datasetArray
       String.prototype.capitalize = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
+      
     }
-      
-      
-      for (var i=0; i<resultKeys.length; i++) {
+      // console.log("resutkeyslength"+resultKeys.length)
+
+
+
+
+
+
+     for (var i=0; i<resultKeys.length; i++) {
         
+        var index = 0
         var scenarioName = resultKeys[i]
+
         var lab = scenarioName.replace(/_|cpe|sales|process/g, "" )
         lab =lab.replace(/fold/g, "FOL D")
         lab = lab.replace(lab[0], lab[0].toUpperCase())
-        var scenarioObject = result[scenarioName]
-        delete scenarioObject.created_dt
+        
+       var scenarioObject = result[scenarioName]
         var scenarioObjectKey = Object.keys(scenarioObject)
 
-        var orderArray = ["pending", "error", "completed", "total"]
+        var orderArray = ['pending', "error", "completed", "total"]
         
         
         var newDataset = {
           label: [lab],
-            data: [],
-            backgroundColor: this.props.colors[i],
-            borderColor: this.props.colors[i],
-            borderWidth: 1,
+          data: [],
+          backgroundColor: this.props.colors[i],
+          borderColor: this.props.colors[i],
+          borderWidth: 1,
         }     
+        // console.log(JSON.stringify(newDataset))
           
-        for(var j = 0; j< scenarioObjectKey.length; j++){
-            var obj = scenarioObject[orderArray[j]]
+       for(var j = 0; j<orderArray.length; j++)  {
 
-        newDataset.data[j] = obj
+         var status = orderArray[j]
+        
+           var obj = scenarioObject[index][status]
+  
+       newDataset.data[j] = obj
         
         
       } 
+      
       datasetArray.push(newDataset)
     
-      console.log("dataSetArray: "+JSON.stringify("LOOKHERE: "+this.props.dataSetArray))
-      
+  
 
   }
+     
+  
+      
+  
       // const chartLabels = [ 'Pending', 'Error', 'Completed', 'Total']
         return (
           <div className="chart" id="chart" height="100%">
             <Bar id="barChart"
               data={{
                 labels: this.props.labels,
-                datasets: this.props.datasetArray
+                datasets: this.props.datasetArray,
                 
               }}
     
-              options={{
+              
+              options={{ 
                 title: {
                   display: this.props.displayTitle,
                   text: this.props.titleText,
@@ -122,10 +158,12 @@ class BarChart extends Component {
                       var label = data.labels[tooltipItem.index];
                       var val = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
                       return label + ':' + val  + ", sum: £"+ Math.floor(Math.random() * 300) + 1+ ', (' + (100 * val / 130).toFixed(0) + '%),'
-                    }
-                  }
-            
+                    },
+                    
+                  },
+                  
                 }
+            
               ,
                 legend: {
                   display: this.props.displayLegend,
@@ -134,7 +172,6 @@ class BarChart extends Component {
                     fontColor:this.props.titleFontColor,
                   }
                 },
-
                 scales: {
                   yAxes: [{
                     stacked: this.props.stackedBars,
@@ -146,17 +183,21 @@ class BarChart extends Component {
                     stacked: this.props.stackedBars,
                     ticks: {
                       beginAtZero: this.AxisAtZero
-                    }
-                  }]
+                    },
+                    
+                  }],
+                  
     
                 },
                 
-
-
-    
+                
+                  
+                
 
                 
-              }}
+              }
+             }
+             
               
             />
 
@@ -170,4 +211,4 @@ class BarChart extends Component {
   
   
     
-    export default BarChart;
+export default BarChart;
