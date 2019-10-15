@@ -10,11 +10,8 @@ class BarChart extends Component {
         super(props);
         this.state = {
             chartData: props.chartData,
-            BarChart:props.BarChart
-            
+            BarChart:props.BarChart         
         }
-        
-
     }
 
     static defaultProps = {
@@ -86,7 +83,7 @@ class BarChart extends Component {
 
 
 
-
+if (datasetArray.length <1 ){
      for (var i=0; i<resultKeys.length; i++) {
         
         var index = 0
@@ -124,9 +121,10 @@ class BarChart extends Component {
       
       datasetArray.push(newDataset)
     
-  
+}
+}
 
-  }
+
      
   
       
